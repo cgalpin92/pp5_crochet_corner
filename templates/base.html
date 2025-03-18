@@ -33,9 +33,38 @@
     <title>Crochet Corner {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top"></header>
-
-    {% if messages %}
+    <header class="container-fluid fixed-top">
+      <nav class="navbar">
+        <div>
+          <div>
+            <h1>Crochet Corner</h1>
+          </div>
+          <div>
+            <!-- Search Bar -->
+             <p>Seach</p>
+          </div>
+          <div>
+            <!-- My Account -->
+             <p>My Account</p>
+          </div>
+          <div>
+            <!-- Shopping Basket -->
+             <p>Basket</p>
+          </div>        
+        </div>
+      </nav>
+      <nav class="navbar">
+        <div>
+          <ul>
+            <li>Home</li>
+            <li>Yarn</li>
+            <li>Tools</li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      {% if messages %}
       <div class="message-container"></div>
     {% endif %}
     
@@ -47,6 +76,9 @@
 
     {% block postloadjs %}
     {% endblock %}
+    </main>
+
+    
     
   </body>
 </html>
