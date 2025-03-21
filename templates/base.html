@@ -50,13 +50,29 @@
               </div>
             </form>
           </div>
-          <div class="col-1">
-            <!-- My Account -->
-            <p>My Account</p>
-          </div>
-          <div class="col-1">
-            <!-- Shopping Basket -->
-            <p>Basket</p>
+          <div>
+            <ul class="list-inline list-unstyled">
+              <li class="list-inline-item dropdown">
+                <a href="#" class="dropdown-toggle" id="my-account-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div>
+                    <!-- My Account -->
+                    <p>My Account</p>
+                  </div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="my-account-options">
+                  <a class="dropdown-item" href="#">My Account</a>
+                  <a class="dropdown-item" href="#">Logout</a>
+                  <a class="dropdown-item" href="#">Sign In</a>
+                  <a class="dropdown-item" href="#">Register</a>
+                </div>
+              </li>
+              <li class="list-inline-item">
+                <div>
+                  <!-- Shopping Basket -->
+                  <p>Basket</p>
+                </div>
+              </li>              
+            </ul>
           </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light">
