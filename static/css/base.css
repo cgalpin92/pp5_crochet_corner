@@ -31,12 +31,20 @@ a {
     font-family: 'Oregano', sans-serif;
 }
 
-.lilac-font {
-    color: #D773A2;
+.pink-font {
+    color: #FF78AC;
+}
+
+.pink-background {
+    background-color: #FF78AC;
 }
 
 .cream-color {
     background-color: #F2EFED;
+}
+
+.btn {
+    background-color: #A8D5E3;
 }
 
 #logo {
@@ -60,6 +68,27 @@ a {
         order: 2;
         padding-top: 1.25rem;
     }
+
+    #welcome {
+        margin-top: 80%;
+        padding: 3%
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    #welcome {
+        margin-top: 42%;
+        padding: 6%
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    #welcome {
+        margin-top: 33%;
+        padding: 8%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -71,4 +100,5 @@ a {
     #basket {
         padding-left: 12%;
     }
+
 }
