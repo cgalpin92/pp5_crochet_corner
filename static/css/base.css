@@ -1,0 +1,43 @@
+html {
+    height: 100%;
+}
+
+body{
+    height: calc(100vh - 164px);
+    color: black;
+    background: url('/media/homepage_image.webp') no-repeat center center fixed ;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.font-one {
+    font-family: 'Leckerli One', sans-serif;
+}
+
+.font-two {
+    font-family: 'Poiret One', sans-serif;
+}
+
+.font-three {
+    font-family: 'Josephin Sans', sans-serif;
+}
+
+.font-four {
+    font-family: 'Nunito', sans-serif;
+}
+
+.font-five {
+    font-family: 'Oregano', sans-serif;
+}
+
+.lilac-font {
+    color: #D773A2;
+}
+
+.cream-color {
+    background-color: #F2EFED;
+}
