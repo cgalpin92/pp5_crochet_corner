@@ -38,39 +38,38 @@
   </head>
 
   <body>
-    <header class="container-fluid cream-color fixed-top">
-      <div id="top-nav" class="row pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-          <a href="{% url 'home' %}" class="nav-link">
-            <h1 class="font-one lilac-font my-0">Crochet</h1><h1 class="font-two my-0">Corner</h1>
+    <header class="container-fluid cream-color fixed">
+      <div id="top-nav" class="row pt-lg-2 d-flex">
+        <div class="col-7 col-md-3 col-lg-4 my-auto py-1 py-lg-0 text-left" id="logo">
+          <a href="{% url 'home' %}" class="nav-link" >
+            <h1 class="font-one lilac-font my-0 d-inline logo-font">Crochet</h1> <h2 class="font-two my-0 d-inline logo-font">Corner</h2>
           </a>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <div class="col-12 col-md-6 col-lg-4 my-auto py-1 py-lg-0" id="search">
           <!-- Search Bar -->
           <form action="" method="GET">
             <div class="input-group w=100">
               <input type="text" class="form-control border border-black rounded" name="q" placeholder="Search for products">
               <div class="input-group-append">
-                <button class="form-control btn btn-black border border-black rounded" type="submit">Search
+                <button class="form-control btn btn-black border border-black rounded font-three" type="submit">Search
                   <span><i class="fa-solid fa-magnifying-glass"></i></span>
                 </button>
               </div>
             </div>
           </form>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+        <div class="col-5 col-md-3 col-lg-4 my-auto py-1 py-lg-0" id="order">
+          <ul class="list-inline list-unstyled text-right text-xl-center my-0">
             <!-- My Account -->
-            <li class="list-inline-item dropdown">
+            <li class="list-inline-item dropdown" id="account">
               <div class="text-center">
                 <a href="#" class="dropdown-toggle" id="my-account-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div><i class="fa-solid fa-circle-user"></i></div>
-                  <p class="my-0">My Account</p>
+                  <p class="my-0 font-three d-none d-lg-block">My Account</p>
                 </a>
-              
-              
                 <div class="dropdown-menu border-0" aria-labelledby="my-account-options">
                   {% if request.user.is_authenticated %}
+                    <p class="dropdown-item font-four">Hi {{ user }}</p>
                     <a class="dropdown-item" href="#">My Account</a>
                     <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                   {% else %}
@@ -81,19 +80,20 @@
               </div>
             </li>
             <!-- Shopping Basket -->
-            <li class="list-inline-item">
-              <a href="" class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link">
-                <div class="text-center">
+            <li class="list-inline-item" id="basket">
+              <div class="text-center">
+                <a href="" class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link">
                   <div><i class="fa-solid fa-cart-shopping"></i></div>
-                  <p class="my-0">
+                  <p class="my-0 font-three d-none d-lg-block">Basket</p>
+                  <p class="my-0 font-three">
                     {% if grand_total %}
                       ${{ grand_total|floatformat:2 }}
                       {% else %}
                         £0.00
                       {% endif %}
                   </p>
-                </div>
-              </a>
+                </a>
+              </div>
             </li>              
           </ul>
         </div>
@@ -131,7 +131,5 @@
     {% block postloadjs %}
     {% endblock %}
 
-    
-    
   </body>
 </html>
