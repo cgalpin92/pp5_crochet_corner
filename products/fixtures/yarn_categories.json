@@ -1,0 +1,1 @@
+[{"pk":1,"model":"products.yarncategory","fields":{"yarn_category_name":"4_ply","yarn_friendly_name":"4 Ply"}},{"pk":2,"model":"products.yarncategory","fields":{"yarn_category_name":"aran","yarn_friendly_name":"Aran"}},{"pk":3,"model":"products.yarncategory","fields":{"yarn_category_name":"dk","yarn_friendly_name":"DK"}}]

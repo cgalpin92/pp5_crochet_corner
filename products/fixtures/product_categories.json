@@ -1,0 +1,1 @@
+[{"pk":1,"model":"products.productcategory","fields":{"name":"yarn","friendly_name":"Yarn"}},{"pk":2,"model":"products.productcategory","fields":{"name":"tools","friendly_name":"Tools"}}]
