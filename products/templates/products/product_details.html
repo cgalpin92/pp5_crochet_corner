@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div  class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="image-container">
+                    <img src="{{ product.image.url }}" alt=" {{ product.name }}">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="product-details-container cream-color">
+                    <p>{{ product.name }}</p>
+                    <p>{{ product.price }}</p>
+                    <p>{{ product.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
