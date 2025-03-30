@@ -6,21 +6,27 @@ class ProductCategory(models.Model):
     friendly_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
-    
+        return self.friendly_name
+
     def get_friendly_name(self):
         return self.friendly_name
-    
+
+    class Meta:
+        verbose_name_plural = "Product Categories"
+
 
 class YarnCategory(models.Model):
     yarn_category_name = models.CharField(max_length=200)
     yarn_friendly_name = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.yarn_category_name
+        return self.yarn_friendly_name
     
     def get_friendly_name(self):
         return self.yarn_friendly_name
+    
+    class Meta:
+        verbose_name_plural = "Yarn Categories"
 
 
 class ToolCategory(models.Model):
@@ -28,10 +34,13 @@ class ToolCategory(models.Model):
     tool_friendly_name = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.tool_category_name
+        return self.tool_friendly_name
     
     def get_friendly_name(self):
         return self.tool_friendly_name
+    
+    class Meta:
+        verbose_name_plural = "Tool Categories"
 
 
 class YarnBrand(models.Model):
@@ -39,7 +48,7 @@ class YarnBrand(models.Model):
     friendly_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.friendly_name
     
     def get_friendly_name(self):
         return self.friendly_name
@@ -50,7 +59,7 @@ class ToolBrand(models.Model):
     friendly_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.friendly_name
     
     def get_friendly_name(self):
         return self.friendly_name
