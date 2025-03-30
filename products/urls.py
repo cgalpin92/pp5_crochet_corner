@@ -1,4 +1,4 @@
-from django.contrib import admin - """will need to remove"""
+from django.contrib import admin
 from django.urls import path
 from . import views
 
