@@ -94,6 +94,14 @@ a {
     width: fit-content;
 }
 
+#msg {
+    font-size: x-large;
+}
+
+#msg-btn {
+    display: contents;
+}
+
 #products {
     font-size: 300%;
 }

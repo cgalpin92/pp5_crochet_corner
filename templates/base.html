@@ -47,7 +47,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4 my-auto py-1 py-lg-0" id="search">
           <!-- Search Bar -->
-          <form action="" method="GET">
+          <form action="{% url 'products' %}" method="GET">
             <div class="input-group w=100">
               <input type="text" class="form-control border border-black rounded" name="q" placeholder="Search for products">
               <div class="input-group-append">
@@ -110,7 +110,20 @@
     
   
     {% if messages %}
-      <div class="message-container"></div>
+      <div class="message-container">
+        <div class="row">
+          <div class="col">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show col-12 col-md-6 col-lg-12 font-four pink-font" role="alert" id="msg">
+              {{ message | safe }}
+              <button type="button" class="close" id="msg-btn" data-dismiss="alert" aria-label="Close">
+                <span> X</span>
+              </button>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     {% endif %}
     
     {% block page_header %}
