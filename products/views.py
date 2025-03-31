@@ -10,7 +10,7 @@ def all_products(request):
     """
     A view to show all the products
     """
-    products_all = Product.objects.all()
+    products = Product.objects.all()
     query = None
 
     if request.GET:
@@ -21,13 +21,13 @@ def all_products(request):
                 return redirect(reverse('products'))
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products_all = products_all.filter(queries)
+            products = products.filter(queries)
 
     return render(
         request,
         'products/products.html',
         {
-            "products_all": products_all,
+            "products": products,
             "search_term": query
         }
     )
