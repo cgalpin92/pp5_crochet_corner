@@ -10,18 +10,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid d-flex m-5">
-        <div class="row pt-5 align-items-center justify-content-center">
+    <div class="layer"></div>
+    <div class="container-fluid d-flex">
+        <div class="row pt-5 align-items-center" id="spacing">
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="image-container">
-                    <img src="{{ product.image.url }}" alt=" {{ product.name }}">
+                <div class="image-container d-flex justify-content-center">
+                    <img src="{{ product.image.url }}" alt=" {{ product.name }}" class="w-100" id="details-img-size">
                 </div>
             </div>
-            <div class="col-6">
-                <div class="product-details-container cream-color p-3">
-                    <p>{{ product.name }}</p>
-                    <p>{{ product.price }}</p>
-                    <p>{{ product.description }}</p>
+            <div class="col-12 col-md-6">
+                <div class="product-details-container p-3">
+                    <p class="font-three" id="title-font">{{ product.name }}</p>
+                    <p class="pink-font font-three price">£{{ product.price }}</p>
+                    <p id="product-description">{{ product.description }}</p>
                 </div>
             </div>
         </div>
