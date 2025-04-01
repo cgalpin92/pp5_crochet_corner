@@ -9,10 +9,10 @@
         <li class="nav-item dropdown">
             <a href="" class="nav-link mr-5" id="yarn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Yarn</a>
             <div class="dropdown-menu border-0" aria-labelledby="yarn">
-                <a href="" class="dropdown-item">All Yarn</a>
-                <a href="" class="dropdown-item">4-Ply</a>
-                <a href="" class="dropdown-item">Aran</a>
-                <a href="" class="dropdown-item">DK</a>
+                <a href="{% url 'products' %}?yarn_category=4_ply,aran,dk" class="dropdown-item">All Yarn</a>
+                <a href="{% url 'products' %}?yarn_category=4_ply" class="dropdown-item">4-Ply</a>
+                <a href="{% url 'products' %}?yarn_category=aran" class="dropdown-item">Aran</a>
+                <a href="{% url 'products' %}?yarn_category=dk" class="dropdown-item">DK</a>
             </div>
         </li>
         <li class="nav-item dropdown">

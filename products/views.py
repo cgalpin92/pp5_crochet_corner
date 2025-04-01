@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product
+from .models import Product, YarnCategory
 
 # Create your views here.
 
@@ -12,8 +12,14 @@ def all_products(request):
     """
     products = Product.objects.all()
     query = None
+    yarn_category = None
 
     if request.GET:
+        if 'yarn_category' in request.GET:
+            yarn_categories = request.GET['yarn_category'].split(',')
+            products = products.filter(yarn_category__yarn_category_name__in=yarn_categories)
+            yarn_categories = YarnCategory.objects.filter(yarn_category_name__in=yarn_categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -28,7 +34,8 @@ def all_products(request):
         'products/products.html',
         {
             "products": products,
-            "search_term": query
+            "search_term": query,
+            "yarn_categories": yarn_categories
         }
     )
 
