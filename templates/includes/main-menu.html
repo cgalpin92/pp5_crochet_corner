@@ -18,11 +18,11 @@
         <li class="nav-item dropdown">
             <a href="" class="nav-link mr-5" id="tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
             <div class="dropdown-menu border-0" aria-labelledby="tools">
-                <a href="" class="dropdown-item">All Tools</a>
-                <a href="" class="dropdown-item">Crochet Hooks and Needles</a>
-                <a href="" class="dropdown-item">Counters and Markers</a>
-                <a href="" class="dropdown-item">Yarn Bowls</a>
-                <a href="" class="dropdown-item">Other</a>
+                <a href="{% url 'products' %}?tool_category=crochet_hooks_and_needles,counters_and_markers,yarn_bowls,other" class="dropdown-item">All Tools</a>
+                <a href="{% url 'products' %}?tool_category=crochet_hooks_and_needles" class="dropdown-item">Crochet Hooks and Needles</a>
+                <a href="{% url 'products' %}?tool_category=counters_and_markers" class="dropdown-item">Counters and Markers</a>
+                <a href="{% url 'products' %}?tool_category=yarn_bowls" class="dropdown-item">Yarn Bowls</a>
+                <a href="{% url 'products' %}?tool_category=other" class="dropdown-item">Other</a>
             </div>
         </li>
     </ul>
