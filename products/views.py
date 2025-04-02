@@ -13,17 +13,15 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     product_category = None
-    yarn_category = None
-    tool_category = None
-    yarn_brand = None
-    tool_brand = None
     sort = None
     direction = None
-
+    categories = None
+    category = None
+    brands = None
+    brand = None
+    
     if request.GET:
         if 'sort' in request.GET:
-            yarn_categories = None
-            tool_categories = None
             sortkey = request.GET['sort']
             sort=sortkey
             if sortkey == 'name':
@@ -31,8 +29,6 @@ def all_products(request):
                 products = products.annotate(lower_name=Lower('name'))
         
             if 'direction' in request.GET:
-                yarn_categories = None
-                tool_categories = None
                 direction = request.GET['direction']
                 if direction == 'asc':
                     sortkey = f'{sortkey}'
@@ -40,43 +36,29 @@ def all_products(request):
         
         if 'product_category' in request.GET:
             sortkey = None
-            tool_categories = None
-            yarn_categories = None
             product_categories = request.GET['product_category'].split(',')
             products = products.filter(product_category__name__in=product_categories)
             product_categories = ProductCategory.objects.filter(name__in=product_categories)
-
-        if 'yarn_category' in request.GET:
-            sortkey = None
-            tool_categories = None
-            yarn_categories = request.GET['yarn_category'].split(',')
-            products = products.filter(yarn_category__yarn_category_name__in=yarn_categories)
-            yarn_categories = YarnCategory.objects.filter(yarn_category_name__in=yarn_categories)
         
-        if 'yarn_brand' in request.GET:
-            sortkey = None
-            tool_categories = None
-            yarn_categories= None
-            tool_brands = None
-            yarn_brands = request.GET['yarn_brand'].split(',')
-            products = products.filter(yarn_brand__name__in=yarn_brands)
-            yarn_brands = YarnBrand.objects.filter(name__in=yarn_brands)
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            if request.GET['category'] in ['4_ply', 'aran', 'dk']:
+                products = products.filter(yarn_category__yarn_category_name__in=categories)
+                categories == YarnCategory.objects.filter(yarn_category_name__in=categories)
 
-        if 'tool_category' in request.GET:
-            yarn_categories = None
-            sortkey = None
-            tool_categories = request.GET['tool_category'].split(',')
-            products = products.filter(tool_category__tool_category_name__in=tool_categories)
-            tool_categories = ToolCategory.objects.filter(tool_category_name__in=tool_categories)
+            elif request.GET['category'] in ['crochet_hooks_and_needles', 'counters_and_markers', 'yarn_bowls', 'other']:
+                products = products.filter(tool_category__tool_category_name__in=categories)
+                categories = ToolCategory.objects.filter(tool_category_name__in=categories)
         
-        if 'tool_brand' in request.GET:
-            sortkey = None
-            tool_categories = None
-            yarn_categories= None
-            yarn_brands = None
-            tool_brands = request.GET['tool_brand'].split(',')
-            products = products.filter(tool_brand__name__in=tool_brands)
-            tool_brands = ToolBrand.objects.filter(name__in=tool_brands)
+        if 'brand' in request.GET:
+            brands = request.GET['brand'].split(',')
+            if request.GET['brand'] in ['creative_cotton', 'crochet_society', 'scheepjes_chunky_monkey', 'west_yorkshire_spinners_signature']:
+                products = products.filter(yarn_brand__name__in=brands)
+                brands == YarnBrand.objects.filter(name__in=brands)
+
+            elif request.GET['brand'] in ['bella_coco','clover_armour','crochet_society','knit_pro', 'pony', 'sirdar']:
+                products = products.filter(tool_brand__name__in=brands)
+                categories = ToolBrand.objects.filter(name__in=brands)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -96,9 +78,10 @@ def all_products(request):
         {
             "products": products,
             "search_term": query,
-            "yarn_categories": yarn_categories,
-            "tool_categories": tool_categories,
-            "current_sorting": current_sorting
+            "product_category": product_category,
+            "current_brands": brands,
+            "current_sorting": current_sorting,
+            "current_categories": categories
         }
     )
 

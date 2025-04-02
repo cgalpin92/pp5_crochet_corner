@@ -23,6 +23,11 @@
                     <p class="font-three" id="title-font">{{ product.name }}</p>
                     <p class="pink-font font-three price">£{{ product.price }}</p>
                     <p id="product-description">{{ product.description }}</p>
+                    {% if product.yarn_category %}
+                    <p>{{ product.yarn_category }}</p>
+                    {% elif product.tool_category %}
+                    <p>{{ product.tool_category }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
