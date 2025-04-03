@@ -5,7 +5,9 @@ from products.models import Product
 
 
 def basket_contents(request):
-
+    """
+    Taken from the Boutique Ado walkthrough project
+    """
     basket_items = []
     total = 0
     product_count = 0

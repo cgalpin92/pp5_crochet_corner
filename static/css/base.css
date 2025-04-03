@@ -95,6 +95,11 @@ a {
     letter-spacing: 2px;
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 #product-name {
     font-size: small;
 }
@@ -123,6 +128,7 @@ a {
     letter-spacing: 1px;
 }
 
+/* Footer */
 footer {
     margin-top: auto;
 }

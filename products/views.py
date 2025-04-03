@@ -9,6 +9,7 @@ from .models import Product, YarnCategory, ToolCategory, YarnBrand, ToolBrand, P
 def all_products(request):
     """
     A view to show all the products
+    Some code taken from the Boutique Ado walkthrough project
     """
     products = Product.objects.all()
     yarn_categories = YarnCategory.objects.all()

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 # Create your views here.
 
@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 def view_basket(request):
     """
     A view to returns the basket contents page
+    Taken from the Boutique Ado walkthrough project
     """
     return render(request, 'basket/basket.html')
 
@@ -13,6 +14,7 @@ def view_basket(request):
 def add_to_basket(request, item_id):
     """
     Adds products to the shopping basket
+    Taken from the Boutique Ado walkthrough project
     """
 
     quantity = int(request.POST.get('quantity'))
@@ -26,3 +28,39 @@ def add_to_basket(request, item_id):
 
     request.session['basket'] = basket
     return redirect(redirect_url)
+
+
+def adjust_basket(request, item_id):
+    """
+    Adjusts the quantity of the specified product 
+    Taken from the Boutique Ado walkthrough project
+    """
+
+    quantity = int(request.POST.get('quantity'))
+    basket = request.session.get('basket', {})
+
+    if quantity > 0:
+        basket[item_id] = quantity
+    else:
+        basket.pop(item_id)
+
+    request.session['basket'] = basket
+    return redirect(reverse('view_basket'))
+
+
+def remove_from_basket(request, item_id):
+    """
+    Remove the item from the shopping basket 
+    Taken from the Boutique Ado walkthrough project
+    """
+    try:
+        basket = request.session.get('basket', {})
+
+        basket.pop(item_id)
+
+        request.session['basket'] = basket
+        return HttpResponse(status=200)
+    
+    except Exception as e:
+        return HttpResponse(status=500)
+    

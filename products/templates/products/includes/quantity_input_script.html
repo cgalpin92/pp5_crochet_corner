@@ -1,6 +1,7 @@
 <script type="text/javascript">
 
     // Disabled +/- buttons outside 1-99 range
+    // taken from the Boutique Ado walkthrough project
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
         var minusDisabled = currentValue < 2;
@@ -10,6 +11,7 @@
     }
 
     // Ensure proper enabling/disabling of all inputs on page load
+    // taken from the Boutique Ado walkthrough project
     var allQtyInputs = $('.qty_input');
     for(var i = 0; i < allQtyInputs.length; i++){
         var item_id = $(allQtyInputs[i]).data('item_id');
@@ -17,12 +19,14 @@
     }
 
     //Check enable/disable every time the input is changed
+    // taken from the Boutique Ado walkthrough project
     $('.qty_input').change(function() {
         var itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     });
 
     // Increment Quantity
+    // taken from the Boutique Ado walkthrough project
     $('.increment-qty').click(function(e) {
         e.preventDefault();
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
