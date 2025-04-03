@@ -4,6 +4,9 @@ html {
 
 body{
     height: calc(100vh - 164px);
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
     color: black;
     background: url('/media/homepage_image.webp') no-repeat center center fixed ;
     background-size: cover;
@@ -86,6 +89,12 @@ a {
     font-size: larger;
 }
 
+.page-header {
+    font-size: 300%;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
 #product-name {
     font-size: small;
 }
@@ -102,13 +111,15 @@ a {
     display: contents;
 }
 
-#products {
-    font-size: 300%;
-}
 
 #title-font {
     font-weight: 700;
     font-size: large;
+    letter-spacing: 1px;
+}
+
+#basket-font {
+    font-size: xx-large;
     letter-spacing: 1px;
 }
 

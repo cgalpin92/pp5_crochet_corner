@@ -82,7 +82,7 @@
             <!-- Shopping Basket -->
             <li class="list-inline-item" id="basket">
               <div class="text-center">
-                <a href="" class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link">
+                <a href="{% url 'view_basket' %}" class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link">
                   <div><i class="fa-solid fa-cart-shopping"></i></div>
                   <p class="my-0 font-three d-none d-lg-block">Basket</p>
                   <p class="my-0 font-three">
@@ -137,7 +137,7 @@
     <footer class="font-two cream-color d-flex flex-row justify-content-center">
       <div class="row">
         <div class="col-4 mt-5 mb-5 pr-5">
-          <h6 class="footer-text">Free UK Delivery on orders over £40</h6>
+          <h6 class="footer-text">Free UK Delivery on orders over £{{ free_delivery_limit }}</h6>
         </div>
         <div class="col-4 mt-5 mb-5 pr-5">
           <h6 class="footer-text">Sign up for our Newsletter</h6>
