@@ -134,7 +134,13 @@ footer {
 .social-media-links {
     list-style: none;
     display: flex;
-    padding-left: inherit;
+    margin-right: 2%;
+    margin-top: 5%;
+}
+
+.icon{
+    font-size: xx-large;
+    color: #FF78AC;
 }
 
 @media screen and (max-width: 425px) {
