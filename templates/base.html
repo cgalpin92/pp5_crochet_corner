@@ -82,12 +82,12 @@
             <!-- Shopping Basket -->
             <li class="list-inline-item" id="basket">
               <div class="text-center">
-                <a href="{% url 'view_basket' %}" class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link">
-                  <div><i class="fa-solid fa-cart-shopping"></i></div>
+                <a href="{% url 'view_basket' %}" class="{% if grand_total %}pink-font font-weight-bold{% else %}text-black{% endif %} nav-link">
+                  <div><i class="fa-solid fa-basket-shopping"></i></div>
                   <p class="my-0 font-three d-none d-lg-block">Basket</p>
                   <p class="my-0 font-three">
                     {% if grand_total %}
-                      ${{ grand_total|floatformat:2 }}
+                      £{{ grand_total|floatformat:2 }}
                       {% else %}
                         £0.00
                       {% endif %}

@@ -20,7 +20,9 @@
         <div class="row">
             <div class="col">
                 {% if basket_items %}
-                <div class="table-responsive"></div>
+                <div class="table-responsive">
+                    {{ basket_items }}
+                </div>
                 {% else %}
                 <p id="basket-font">Your basket is empty</p>
                 <a href="{% url 'products' %}" class="btn rounded font-three">Keep Shopping</a>
