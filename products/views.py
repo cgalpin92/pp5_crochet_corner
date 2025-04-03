@@ -11,6 +11,7 @@ def all_products(request):
     A view to show all the products
     """
     products = Product.objects.all()
+    yarn_categories = YarnCategory.objects.all()
     query = None
     product_category = None
     sort = None
@@ -27,6 +28,8 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
+            if sortkey == 'category':
+                sortkey = 'category__name'
         
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -81,7 +84,8 @@ def all_products(request):
             "product_category": product_category,
             "current_brands": brands,
             "current_sorting": current_sorting,
-            "current_categories": categories
+            "current_categories": categories,
+            "yarn_categories": yarn_categories
         }
     )
 
