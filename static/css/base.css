@@ -112,6 +112,20 @@ a {
     letter-spacing: 1px;
 }
 
+footer {
+    margin-top: auto;
+}
+
+.footer-text {
+    font-weight: 900;
+}
+
+.social-media-links {
+    list-style: none;
+    display: flex;
+    padding-left: inherit;
+}
+
 @media screen and (max-width: 425px) {
 
     .logo-font {
