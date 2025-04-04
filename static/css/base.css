@@ -128,6 +128,24 @@ a {
     letter-spacing: 1px;
 }
 
+/* toasts */
+
+/* taken from Boutique ado walkthrough */
+.messages-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999999999999;
+}
+
+.toast-header {
+    font-size: xx-large;
+}
+
+.toast-body {
+    font-size: large;
+}
+
 /* Footer */
 footer {
     margin-top: auto;

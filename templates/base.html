@@ -110,19 +110,20 @@
     
   
     {% if messages %}
-      <div class="message-container">
-        <div class="row">
-          <div class="col">
-            {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-dismissible fade show col-12 col-md-6 col-lg-12 font-four pink-font" role="alert" id="msg">
-              {{ message | safe }}
-              <button type="button" class="close" id="msg-btn" data-dismiss="alert" aria-label="Close">
-                <span> X</span>
-              </button>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
+      <div class="message-container d-flex justify-content-center">
+        {% for message in messages %}
+          {% with message.level as level %}
+            {% if level == 40 %}
+              {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+              {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+              {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+              {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+          {% endwith %}
+        {% endfor %}
       </div>
     {% endif %}
     
@@ -156,6 +157,9 @@
     </footer> 
 
     {% block postloadjs %}
+    <script type="text/javascript">
+      $('.toast').toast('show');
+    </script>
     {% endblock %}
 
   </body>
