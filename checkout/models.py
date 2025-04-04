@@ -17,7 +17,7 @@ class Order(models.Model):
         (PENDING, "Pending"),
         (DISPATCHED, "Dispatched"),
         (RETURN_PENDING, "Return Pending"),
-        (RETURNED ,"Returned"),
+        (RETURNED, "Returned"),
     ]
 
     order_number = models.CharField(max_length=32, null=False, editable=False)

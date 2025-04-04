@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load basket_tools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -24,7 +24,90 @@
         </div>
         <div class="row">
             <div class="col">
+                <p>Your Order Summary ({{ product_count }})</p>
+                <div class="row">
+                    <div class="col">
+                        <p>Item</p>
+                    </div>
+                    <div class="col">
+                        <p>Subtotal</p>
+                    </div>
+                </div>
+                {% for item in basket_items %}
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'product_details' item.product.id %}">
+                                <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <p>{{ item.product.name }}</p>
+                            <p>Qty: {{ item.quantity }}</p>
+                        </div>
+                        <div class="col">
+                            <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Order Total:</p>
+                    <p>Delivery:</p>
+                    <p>Grand Total:</p>
+                </div>
+                <div class="col">
+                    <p>£{{ total | floatformat:2 }}</p>
+                    <p>£{{ delivery | floatformat:2 }}</p>
+                    <p>£{{ grand_total | floatformat:2 }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <p class="font-three">Please fill out the form below to complete your order</p>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend class="fieldset-label">Your Details</legend>
+                        {{ order_form.first_name | as_crispy_field }}
+                        {{ order_form.last_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                        {{ order_form.phone_number | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend class="fieldset-label">Delivery Details</legend>
+                        {{ order_form.country | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        <div class="form-check form-check-inline">
+                            {% if user.is_authenticated %}
+                                <label for="id-save-info" class="form-check-label">Save this delivery information to my profile</label>
+                                <input type="checkbox" class="form-check-input" id="id-save-info" name="save-info" checked>
+                            {% else %}
+                                <label for="id-save-info" class="form-check-label">
+                                    <a class="btn rounded font-three" href="{% url 'account_signup' %}">Create an account</a>
+                                    <a class="btn rounded font-three" href="{% url 'account_login' %}">login</a> to save this information to your profile
+                                </label>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend class="fieldset-label">Payment</legend>
+                        <!-- Stripe card element will go here -->
+                         <div id="card-element"></div>
+                         <!-- Used to display form errors -->
+                          <div id="card-errors" role="alert"></div>
+                    </fieldset>
+                    <div>
+                        <a class="btn rounded font-three" href="{% url 'view_basket' %}">Go back to Shopping Bag</a>
+                        <button class="btn rounded font-three" id="submit-button">Complete Order</button>
+                        <p>Your card will be charged £{{ grand_total|floatformat:2 }}</p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
