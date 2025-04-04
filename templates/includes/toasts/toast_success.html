@@ -8,6 +8,36 @@
         </buttton>
     </div>
     <div class="toast-body bg-white font-four pink-font">
-        {{ message }}
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
+        </div>
+        {% if grand_total %}
+            <p class="font-two">Your Basket {{ product_count }}</p>
+            <div class="shopping-basket">
+                {% for item in basket_items %}
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="{{ item.product.image.url }}" alt="" class="w-100">
+                        </div>
+                        <div class="col-9">
+                            <p>{{ item.product.name }}</p>
+                            <p>{{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: £{{ total|floatformat:2 }}</p>
+                    {% if free_delivery_delta > 0 %}
+                    <p>Spend £{{ free_delivery_delta }} more to get free next day delivery!</p>
+                    {% endif %}
+                    <a href="{% url 'view_basket' %}" class="btn rounded font-three"> Go To Secure Checkout</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>

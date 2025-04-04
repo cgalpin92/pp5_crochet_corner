@@ -146,6 +146,12 @@ a {
     font-size: large;
 }
 
+.shopping-basket {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 /* Footer */
 footer {
     margin-top: auto;
