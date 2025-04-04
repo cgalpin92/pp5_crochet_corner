@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
 
 {% block page_header %}
     <div  class="container header-container">
@@ -47,15 +48,15 @@
                                     <form action="{% url 'adjust_basket' item.item_id %}" method="POST" class="form update-form">
                                         {% csrf_token %}
                                         <div class="form-group">
-                                            <div class="input-group">
+                                            <div class="input-group input-group-{{ item.item_id }}">
                                                 <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn rounded" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                    <button class="decrement-qty btn rounded decrement-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
                                                         <i class="fa-solid fa-minus"></i>
                                                     </button>
                                                 </div>
-                                                <input type="number" class="form-control qty_input" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                <input type="number" class="form-control qty_input id_qty_{{ item.item_id }}" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="">
                                                 <div class="input-group-append">
-                                                    <button class="increment-qty btn rounded" data-item_id="{{item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                    <button class="increment-qty btn rounded increment-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
                                                         <i class="fa-solid fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -66,7 +67,7 @@
                                     <a href="" class="remove-item btn rounded font-three" id="remove_{{ item.item_id }}">Remove</a>
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">£{{item.product.price}}</p>
+                                    <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </td>
                             </tr>
                         {% endfor %}
