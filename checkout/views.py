@@ -15,6 +15,8 @@ def checkout(request):
         request,
         'checkout/checkout.html',
         {
-            "order_form": order_form
+            "order_form": order_form,
+            "stripe_public_key": "pk_test_51RAURpQPBrj6DHsXp9CnpeudhabhiuZpywrN3fWFX0JGLAtKD8IJy5CrAqzIzxsnAh3sBzhwmxWw30tFjBtyJHAz00mXXwDLJH",
+            "client_secret": "test client secret",
         }
     )
