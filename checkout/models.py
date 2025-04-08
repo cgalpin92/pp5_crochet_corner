@@ -36,6 +36,8 @@ class Order(models.Model):
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     order_status = models.CharField(max_length=20, choices=ORDER_STATUS_CHOICES, default=PENDING)
+    original_basket = models.TextField(null=False, blank=True, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=True, default='')
 
     def _generate_order_number(self):
         """
