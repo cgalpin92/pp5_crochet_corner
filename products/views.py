@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Product, YarnCategory, ToolCategory, YarnBrand, ToolBrand, ProductCategory
 from .forms import ProductForm
@@ -108,10 +109,15 @@ def product_details(request, product_id):
     )
 
 
+@login_required
 def add_product(request):
     """
     Add a product to the store
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site admins can create, update or delete products')
+        return redirect(reverse('home'))
+    
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -131,10 +137,16 @@ def add_product(request):
         }
     )
 
+
+@login_required
 def edit_product(request, product_id):
     """
     Edit a product in the store
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site admins can create, update or delete products')
+        return redirect(reverse('home'))
+    
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -157,10 +169,16 @@ def edit_product(request, product_id):
         }
     )
 
+
+@login_required
 def delete_product(request, product_id):
     """
     Delete a product in the store
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site admins can create, update or delete products')
+        return redirect(reverse('home'))
+    
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product has been deleted!')
