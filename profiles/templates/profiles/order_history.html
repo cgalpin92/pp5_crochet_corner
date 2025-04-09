@@ -40,7 +40,7 @@
                         {% for order in orders %}
                         <tr scope="row">
                             <td>
-                                <a href="{% url 'order_history_details' order.order_number %}" title="{{ order.order_number }}">
+                                <a href="{% url 'order_history_item' order.order_number %}" title="{{ order.order_number }}">
                                 {{ order.order_number|truncatechars:4 }}
                                 </a>
                             </td>

@@ -47,12 +47,13 @@ def order_history(request):
     )
 
 
-def order_history_item(request, order_number, date):
+def order_history_item(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
+    order_date = get_object_or_404(Order, date=order.date)
 
     messages.info(request, (
-        f'Order confirmation for order number {{ order_number }}'
-        'A confirmation email was sent to you on {{ order.date }}'
+        f'Order confirmation for order number {order_number}.'
+        'A confirmation email was sent to you on {order_date}'
     ))
     
     return render(
@@ -60,6 +61,7 @@ def order_history_item(request, order_number, date):
         'checkout/checkout_success.html',
         {
             "order": order,
+            "order_date": order_date,
             "from_order_history": True,
         }
     )
