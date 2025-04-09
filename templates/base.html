@@ -71,7 +71,7 @@
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="my-account-options">
                   {% if request.user.is_authenticated %}
-                    <p class="dropdown-item font-four">Hi {{ user }}</p>
+                    <p class="dropdown-item font-four pink-font">Hi {{ user }}</p>
                     {% if request.user.is_superuser %}
                       <a class="dropdown-item" href="#">Product Management</a>
                     {% endif %}

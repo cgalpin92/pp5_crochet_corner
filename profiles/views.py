@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
 from .models import UserProfile
+from checkout.models import Order
 from .forms import UserProfileForm
 
 
@@ -14,7 +15,8 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your account has been updated successfully')
+            messages.success(request,
+                             'Your account has been updated successfully')
 
     form = UserProfileForm(instance=profile)
 
@@ -41,5 +43,23 @@ def order_history(request):
         'profiles/order_history.html',
         {
             "orders": orders
+        }
+    )
+
+
+def order_history_item(request, order_number, date):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.info(request, (
+        f'Order confirmation for order number {{ order_number }}'
+        'A confirmation email was sent to you on {{ order.date }}'
+    ))
+    
+    return render(
+        request,
+        'checkout/checkout_success.html',
+        {
+            "order": order,
+            "from_order_history": True,
         }
     )

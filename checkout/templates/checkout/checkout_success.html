@@ -191,12 +191,24 @@
                                 <p>{{ order.grand_total }}</p>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>Order Status</p>
+                            </div>
+                            <div class="col">
+                                <p>{{ order.order_status }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <a href="{% url 'home' %}" class="btn rounded font-three">Return Home Page</a>
+            {% if from_order_history %}
+                <a href="{% url 'order_history' %}" class="btn rounded font-three">Return Order History</a>
+            {% else %}
+                <a href="{% url 'home' %}" class="btn rounded font-three">Return Home Page</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
