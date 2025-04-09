@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, YarnCategory, ToolCategory, YarnBrand, ToolBrand, ProductCategory
+from .forms import ProductForm
 
 # Create your views here.
 
@@ -103,5 +104,20 @@ def product_details(request, product_id):
         'products/product_details.html',
         {
             "product": product
+        }
+    )
+
+
+def add_product(request):
+    """
+    Add a product to the store
+    """
+    form = ProductForm()
+    
+    return render(
+        request,
+        'products/add_product.html',
+        {
+            "form": form,
         }
     )
