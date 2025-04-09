@@ -29,7 +29,7 @@
                     <p class="font-three" id="title-font">{{ product.name }}</p>
                     {% if request.user.is_superuser %}
                     <small>
-                        <a class="btn rounded font-three " href="{% url 'edit_product' product.id %}">Edit</a>
+                        <a class="btn rounded font-three" href="{% url 'edit_product' product.id %}">Edit</a>
                         <a class="btn rounded font-three" href="{% url 'delete_product' product.id %}">Delete</a>
                     </small> 
                     {% endif %}
