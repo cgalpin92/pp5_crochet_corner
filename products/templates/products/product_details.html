@@ -14,9 +14,15 @@
     <div class="container-fluid d-flex">
         <div class="row pt-5 align-items-center" id="spacing">
             <div class="col-12 col-md-6 col-lg-4">
+                {% if product.image %}
                 <div class="image-container d-flex justify-content-center">
                     <img src="{{ product.image.url }}" alt=" {{ product.name }}" class="w-100" id="details-img-size">
                 </div>
+                {% else %}
+                <div>
+                    <img class="card-img-top img-fluid product-img-size" src="{{ MEDIA_URL }}no_image.webp" alt="{{ product.name }}">
+                </div>
+                {% endif %}
             </div>
             <div class="col-12 col-md-6">
                 <div class="product-details-container p-3">

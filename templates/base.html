@@ -73,7 +73,7 @@
                   {% if request.user.is_authenticated %}
                     <p class="dropdown-item font-four pink-font">Hi {{ user }}</p>
                     {% if request.user.is_superuser %}
-                      <a class="dropdown-item" href="#">Product Management</a>
+                      <a class="dropdown-item" href="{% url 'add_product' %}">Product Management</a>
                     {% endif %}
                     <a class="dropdown-item" href="{% url 'profile' %}">My Account</a>
                     <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
