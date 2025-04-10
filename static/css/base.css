@@ -2,7 +2,7 @@ html {
     height: 100%;
 }
 
-body{
+body {
     height: calc(100vh - 164px);
     min-height: 100vh; 
     display: flex;
@@ -11,6 +11,10 @@ body{
     background: url('/media/homepage_image.webp') no-repeat center center fixed ;
     background-size: cover;
     font-family: 'Nunito', sans-serif;
+}
+
+main {
+    margin-bottom: 5%;
 }
 
 a {
@@ -155,6 +159,7 @@ a {
 /* Footer */
 footer {
     margin-top: auto;
+    border-top: 4px solid white;
 }
 
 .footer-text {
@@ -290,7 +295,7 @@ footer {
         justify-content: center;
     }
 
-    
+   
 }
 
 @media screen and (min-width: 1200px) {
