@@ -36,7 +36,7 @@
                 {% for item in basket_items %}
                     <div class="row">
                         <div class="col">
-                            {% if product.image %}
+                            {% if item.product.image %}
                             <a href="{% url 'product_details' item.product.id %}">
                                 <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
                             </a>

@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.db.models import Q
 from .models import Product, YarnCategory, ToolCategory, YarnBrand, ToolBrand, ProductCategory
-from .forms import ProductForm
+from checkout.models import Order
+from .forms import ProductForm, AdminOrder
 
 # Create your views here.
 
@@ -109,6 +111,9 @@ def product_details(request, product_id):
     )
 
 
+
+
+
 @login_required
 def add_product(request):
     """
@@ -183,3 +188,7 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product has been deleted!')
     return redirect(reverse('products'))
+
+
+
+

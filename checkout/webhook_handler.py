@@ -75,22 +75,27 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = shipping_details.phone,
-                profile.default_country = shipping_details.address.country,
-                profile.default_postcode = shipping_details.address.postal_code,
-                profile.default_town_or_city = shipping_details.address.city,
-                profile.default_street_address1 = shipping_details.address.line1,
-                profile.default_street_address2 = shipping_details.address.line2,
-                profile.default_county = shipping_details.address.state,
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
                 profile.save()
 
         order_exists = False
         attempt = 1
-        while attempt <=5:
+        full_name = shipping_details.name
+        print('FULL NAME: ', full_name)
+        first_name , last_name = shipping_details.name.split()
+        print('FIRST NAME ', first_name)
+        print('LAST NAME ', last_name)
+        while attempt <= 5:
             try:
                 order = Order.objects.get(
-                    first_name__iexact=shipping_details.first_name,
-                    last_name__iexact=shipping_details.last_name,
+                    first_name__iexact=first_name,
+                    last_name__iexact=last_name,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
@@ -118,8 +123,8 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    first_name=shipping_details.first_name,
-                    last_name=shipping_details.last_name,
+                    first_name=first_name,
+                    last_name=last_name,
                     user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
