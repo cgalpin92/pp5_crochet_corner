@@ -15,9 +15,6 @@
         <div class="row pt-4 pb-4">
             <div class="col-12 text-center text-uppercase">
                 <h2 class="font-two cream-color page-header" id="products">Products</h2>
-                {% for c in current_catagories %}
-                <p>{{ c.yarn_category_name }}</p>
-                {% endfor %}
             </div>
         </div>
         <div class="col-12">
@@ -56,7 +53,7 @@
                                 {% endif %}
                                 <div class="card-body cream-color p-2">
                                     <p class="card-text text-right pink-font mb-1 font-three price">£{{ product.price }}</p>
-                                    <a href="{% url 'product_details' product.id %}"><p class="card-text font-three text-center" id="product-name">{{ product.name }}</p></a>
+                                    <a href="{% url 'product_details' product.id %}"><p class="card-text font-three text-center product-name">{{ product.name }}</p></a>
                                 </div>
                                 <div class="card-footer">
                                     {% if product.yarn_category %}
