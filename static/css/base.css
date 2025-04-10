@@ -159,17 +159,18 @@ footer {
 
 .footer-text {
     font-weight: 900;
+    padding-right: 4%;
 }
 
 .social-media-links {
     list-style: none;
     display: flex;
     margin-right: 2%;
-    margin-top: 5%;
+    justify-content: center;
 }
 
 .icon{
-    font-size: xx-large;
+    font-size: x-large;
     color: #FF78AC;
 }
 
@@ -178,6 +179,15 @@ footer {
     .logo-font {
         font-size: 180%;
     }
+
+    .social-media-links {
+        margin-top: 5%;
+    }
+
+    .direction {
+        flex-direction: column;
+    }
+
     #logo {
         order: 1;
     }
@@ -227,7 +237,7 @@ footer {
 @media screen and (min-width: 768px) {
 
     #welcome {
-        margin-top: 42%;
+        margin-top: 32%;
         padding: 6%
     }
 
@@ -238,6 +248,14 @@ footer {
     #title-font {
         font-weight: 750;
         font-size: x-large;
+    }
+
+    .social-media-links {
+        margin-top: 3%;
+    }
+
+    .direction {
+        flex-direction: column;
     }
 
 }
@@ -257,6 +275,22 @@ footer {
     #product-name {
         font-size: smaller;
     }
+
+    .direction {
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+    .direction-two {
+        flex-direction: column;
+    }
+
+    .direction-three {
+        display: flex;
+        justify-content: center;
+    }
+
+    
 }
 
 @media screen and (min-width: 1200px) {
