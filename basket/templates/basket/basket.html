@@ -13,20 +13,20 @@
 {% block content %}
     <div class="layer"></div>
     <div class="container h-100">
-        <div class="row text-center p-5">
+        <div class="row text-center p-2">
             <div class="col">
-                <h2 class="font-two text-uppercase page-header">Shopping Bag</h2>
+                <h2 class="font-two text-uppercase page-header">Shopping Basket</h2>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 {% if basket_items %}
-                <div class="table-responsive rounded">
-                    <table class="table table-sm table-borderless">
-                        <thead class="text-black">
+                <div class="table-responsive rounded tbl small">
+                    <table class="table table-sm table">
+                        <thead class="pink-font font-three text-align-center">
                             <tr>
-                                <th scope="col">Product Info</th>
                                 <th scope="col"></th>
+                                <th scope="col">Product Info</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Basket Total</th>
@@ -36,9 +36,9 @@
                             <tr>
                                 <td class="p-3 w-25">
                                     {% if item.product.image %}
-                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                        <img class="rounded basket-img" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                     {% else %}
-                                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}no_image.webp" alt="{{ item.product.name }}">
+                                        <img class="rounded basket-img" src="{{ MEDIA_URL }}no_image.webp" alt="{{ item.product.name }}">
                                     {% endif %}
                                 </td>
                                 <td class="py-3">
@@ -54,21 +54,21 @@
                                         <div class="form-group">
                                             <div class="input-group input-group-{{ item.item_id }}">
                                                 <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn rounded decrement-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
+                                                    <button class="decrement-qty btn q-btn rounded decrement-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
                                                         <i class="fa-solid fa-minus"></i>
                                                     </button>
                                                 </div>
                                                 <input type="number" class="form-control qty_input id_qty_{{ item.item_id }}" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="">
                                                 <div class="input-group-append">
-                                                    <button class="increment-qty btn rounded increment-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
+                                                    <button class="increment-qty btn q-btn rounded increment-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
                                                         <i class="fa-solid fa-plus"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form> 
-                                    <a href="" class="update-link btn rounded font-three">Update</a>
-                                    <a href="" class="remove-item btn rounded font-three" id="remove_{{ item.item_id }}">Remove</a>
+                                    <a href="" class="update-link btn rounded font-three small-btn m-2">Update</a>
+                                    <a href="" class="remove-item btn rounded font-three small-btn m-2" id="remove_{{ item.item_id }}">Remove</a>
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -76,22 +76,20 @@
                             </tr>
                         {% endfor %}
                         <tr>
-                            <td colspan="5" class="pt-5 text-right">
+                            <td colspan="5" class="pt-5 text-md-right">
                                 <h6>Basket Total: £{{ total|floatformat:2 }}</h6>
                                 <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
                                 <h6>Checkout Total: £{{ grand_total|floatformat:2 }}</h6>
                                 {% if free_delivery_delta > 0 %}
-                                    <p>Spend £{{ free_delivery_delta }} more to earn Free Delivery!</p>
+                                    <p class="pink-background">Spend £{{ free_delivery_delta }} more to earn Free Delivery!</p>
                                 {% endif %}
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <a href="{% url 'products' %}" class="btn rounded font-three">Keep Shopping</a>
-                                <a href="{% url 'checkout' %}" class="btn rounded font-three">Secure Checkout</a>
-                            </td>
-                        </tr>
                     </table>
+                </div>
+                <div class="basket-btns">
+                    <a href="{% url 'products' %}" class="btn rounded font-three m-2">Keep Shopping</a>
+                    <a href="{% url 'checkout' %}" class="btn rounded font-three m-2">Go to Checkout</a>
                 </div>
                 {% else %}
                 <p id="basket-font">Your basket is empty</p>

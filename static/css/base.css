@@ -61,6 +61,7 @@ a {
 .sizing {
     inline-size: max-content;
 }
+
 .small-btn {
     font-size: small;
     padding: 1%;
@@ -114,6 +115,7 @@ a {
     font-size: small;
 }
 
+
 #logo {
     width: fit-content;
 }
@@ -136,6 +138,11 @@ a {
 #basket-font {
     font-size: xx-large;
     letter-spacing: 1px;
+}
+
+.basket-btns {
+    display: flex;
+    justify-content: center;
 }
 
 /* toasts */
@@ -191,12 +198,26 @@ footer {
         font-size: 180%;
     }
 
+    .page-header {
+        font-size: 220%;
+    }
+
     .social-media-links {
         margin-top: 5%;
     }
 
     .direction {
         flex-direction: column;
+    }
+
+    .q-btn {
+        font-size: small;
+        padding: 1%;
+    }
+
+    .basket-img {
+        height: 100px;
+        object-fit: contain;
     }
 
     #logo {
@@ -271,6 +292,11 @@ footer {
 
     .direction {
         flex-direction: column;
+    }
+
+    .basket-img {
+        height: 150px;
+        object-fit: contain;
     }
 
 }
