@@ -140,6 +140,10 @@ a {
     letter-spacing: 1px;
 }
 
+#font-size {
+    font-size: large;
+}
+
 .basket-btns {
     display: flex;
     justify-content: center;
@@ -284,6 +288,10 @@ footer {
     #details-img-size {
         height: 350px;
         object-fit: contain;
+    }
+
+    #font-size {
+        font-size: x-large;
     }
 
     .social-media-links {

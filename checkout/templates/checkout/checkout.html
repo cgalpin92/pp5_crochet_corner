@@ -17,61 +17,92 @@
 {% block content %}
     <div class="layer"></div>
     <div class="container h-100">
-        <div class="row">
+        <div class="row text-center p-2">
             <div class="col">
                 <h2 class="font-two text-uppercase page-header">Lets Checkout</h2>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <p>Your Order Summary ({{ product_count }})</p>
-                <div class="row">
-                    <div class="col">
-                        <p>Item</p>
-                    </div>
-                    <div class="col">
-                        <p>Subtotal</p>
-                    </div>
-                </div>
-                {% for item in basket_items %}
-                    <div class="row">
-                        <div class="col">
-                            {% if item.product.image %}
-                            <a href="{% url 'product_details' item.product.id %}">
-                                <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'product_details' item.product.id %}">
-                                <img src="{{ MEDIA_URL }}no_image.webp" alt="{{ product.name }}">
-                            </a>
-                            {% endif %}
-                        </div>
-                        <div class="col">
-                            <p>{{ item.product.name }}</p>
-                            <p>Qty: {{ item.quantity }}</p>
-                        </div>
-                        <div class="col">
-                            <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p>Order Total:</p>
-                    <p>Delivery:</p>
-                    <p>Grand Total:</p>
-                </div>
-                <div class="col">
-                    <p>£{{ total | floatformat:2 }}</p>
-                    <p>£{{ delivery | floatformat:2 }}</p>
-                    <p>£{{ grand_total | floatformat:2 }}</p>
+                <div class="table-responsive rounded tbl small">
+                    <table class="table table-sm table">
+                        <thead class="pink-font font-three text-align-center">
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        {% for item in basket_items %}
+                            <tr>
+                                <td class="p-3 w-25">
+                                    {% if item.product.image %}
+                                        <a href="{% url 'product_details' item.product.id %}">
+                                            <img class="rounded basket-img" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                        </a>
+                                        
+                                    {% else %}
+                                        <a href="{% url 'product_details' item.product.id %}">
+                                            <img class="rounded basket-img" src="{{ MEDIA_URL }}no_image.webp" alt="{{ item.product.name }}">
+                                        </a>   
+                                    {% endif %}
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">{{ item.product.name }}</p>
+                                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <p class="font-three">Please fill out the form below to complete your order</p>
+                <div class="table-responsive rounded tbl small">
+                    <table class="table table-sm w-100">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="float-right">
+                            <tr>
+                                <td>
+                                    <p>Order Total:</p>
+                                </td>
+                                <td>
+                                    <p>£{{ total | floatformat:2 }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Delivery:</p>
+                                </td>
+                                <td>
+                                    <p>£{{ delivery | floatformat:2 }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Grand Total:</p>
+                                </td>
+                                <td>
+                                    <p>£{{ grand_total | floatformat:2 }}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="font-four pink-background text-center" id="font-size">Please fill out the form below to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset>
@@ -104,20 +135,20 @@
                     <fieldset>
                         <legend class="fieldset-label">Payment</legend>
                         <!-- Stripe card element will go here -->
-                         <div id="card-element"></div>
-                         <!-- Used to display form errors -->
-                          <div id="card-errors" role="alert"></div>
-                          <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                            <div id="card-element"></div>
+                            <!-- Used to display form errors -->
+                            <div id="card-errors" role="alert"></div>
+                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
-                    <div>
-                        <a class="btn rounded font-three" href="{% url 'view_basket' %}">Go back to Shopping Bag</a>
-                        <button class="btn rounded font-three" id="submit-button">Complete Order</button>
-                        <p>Your card will be charged £{{ grand_total|floatformat:2 }}</p>
+                    <div class="inline-grid float-right">
+                        <p class="m-2">Your card will be charged £{{ grand_total|floatformat:2 }}</p>
+                        <button class="btn rounded font-three m-2" id="submit-button">Complete Order</button>
+                        <a class="btn small-btn rounded font-three m-2" href="{% url 'view_basket' %}">Go back to Shopping Bag</a>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
+    </div>    
 {% endblock %}
 
 {% block postloadjs %}
