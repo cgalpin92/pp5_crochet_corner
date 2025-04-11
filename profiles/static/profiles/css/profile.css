@@ -1,0 +1,36 @@
+.headers {
+    color: #FF78AC;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 425px) {
+
+    .headers,
+    .table-rows {
+        font-size: small;
+    }
+
+   
+}
+
+@media screen and (min-width: 768px) {
+
+    .headers {
+        font-size: smaller;
+    }
+
+    .table-rows {
+        font-size: smaller;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .headers {
+        font-size: medium;
+    }
+
+    .table-rows {
+        font-size: medium;
+    }
+}
