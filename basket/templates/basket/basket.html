@@ -42,7 +42,7 @@
                                     {% endif %}
                                 </td>
                                 <td class="py-3">
-                                    <p my-0>{{item.product.name}}</p>
+                                    <p class="my-0">{{item.product.name}}</p>
                                     <p class="my-0 small text-muted">SKU {{item.product.sku|upper}}</p>
                                 </td>
                                 <td class="py-3">
@@ -58,7 +58,7 @@
                                                         <i class="fa-solid fa-minus"></i>
                                                     </button>
                                                 </div>
-                                                <input type="number" class="form-control qty_input id_qty_{{ item.item_id }}" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="">
+                                                <input type="number" class="form-control qty_input id_qty_{{ item.item_id }}" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}">
                                                 <div class="input-group-append">
                                                     <button class="increment-qty btn q-btn rounded increment-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
                                                         <i class="fa-solid fa-plus"></i>
