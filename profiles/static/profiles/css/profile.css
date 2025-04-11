@@ -10,6 +10,27 @@
         font-size: small;
     }
 
+    .form-control {
+        font-size: small;
+    }
+
+    #profile-update-form {
+        font-size: small;
+    }
+
+    #margin {
+        margin-top: -50%;
+    }
+
+   
+}
+
+@media screen and (min-width: 425px) {
+
+    #margin {
+        margin-top: -55%;
+    }
+
    
 }
 
@@ -22,9 +43,13 @@
     .table-rows {
         font-size: smaller;
     }
+
+    #margin {
+        margin-top: -65%;
+    }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
 
     .headers {
         font-size: medium;
@@ -32,5 +57,16 @@
 
     .table-rows {
         font-size: medium;
+    }
+
+    #margin {
+        margin-top: -80%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    #margin {
+        margin-top: -95%;
     }
 }
