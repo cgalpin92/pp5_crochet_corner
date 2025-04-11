@@ -1,0 +1,1 @@
+web: gunicorn crochet_corner.wsgi:application
