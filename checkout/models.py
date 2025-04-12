@@ -95,6 +95,7 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
+    product_name = models.CharField(max_length=100, help_text='records product name at time of creation which will not change when product is updated') 
 
     def save(self, *args, **kwargs):
         """
@@ -102,6 +103,7 @@ class OrderLineItem(models.Model):
         the order total.
         """
         self.lineitem_total = self.product.price * self.quantity
+        self.product_name = self.product.name
         super().save(*args, **kwargs)
 
     def __str__(self):

@@ -50,7 +50,7 @@
                             <td class="table-rows">
                                 <ul class="list-unstyled">
                                     {% for item in order.lineitems.all %}
-                                    <li>{{ item.product.name }} x {{ item.quantity }}</li>
+                                    <li>{{ item.product_name }} x {{ item.quantity }}</li>
                                     {% endfor %}
                                 </ul>
                             </td>
