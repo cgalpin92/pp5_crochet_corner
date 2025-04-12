@@ -214,14 +214,22 @@ footer {
         flex-direction: column;
     }
 
-    .q-btn {
-        font-size: small;
-        padding: 1%;
-    }
+    /* shopping basket */
 
     .basket-img {
-        height: 100px;
+        height: 175px;
         object-fit: contain;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .q-btn {
+        font-size: large;
+    }
+
+    .qty-number {
+        font-size: large;
+        text-align: center;
     }
 
     #logo {

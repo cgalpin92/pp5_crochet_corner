@@ -1,0 +1,6 @@
+<h6>Basket Total: £{{ total|floatformat:2 }}</h6>
+<h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+<h6 class="pink-font"><strong>Checkout Total:</strong> £{{ grand_total|floatformat:2 }}</h6>
+{% if free_delivery_delta > 0 %}
+    <p class="pink-background">Spend £{{ free_delivery_delta }} more to earn Free Delivery!</p>
+{% endif %}
