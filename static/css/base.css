@@ -150,6 +150,17 @@ a {
     justify-content: center;
 }
 
+#mc_embed_signup {
+    background:#F2EFED; 
+    /*false;*/
+    clear:left; 
+    font:14px 'Poiret One',Arial,sans-serif; width: 600px;
+    color: #FF78AC;
+    padding: 2%;
+}
+
+
+
 /* toasts */
 
 /* taken from Boutique ado walkthrough */

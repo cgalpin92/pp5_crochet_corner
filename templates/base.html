@@ -16,7 +16,9 @@
     {% block corecss %}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
       <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Leckerli+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oregano:ital@0;1&family=Poiret+One&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="{% static 'css/base.css' %}">   
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <!-- Mailchimp styling -->
+      <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     {% endblock %}
     
     {% block extra_css %}
@@ -149,7 +151,9 @@
           <i class="fa-solid fa-truck icon d-lg-flex justify-content-center"></i>
         </div>
         <div class="col d-flex justify-content-center p-2 direction-two">
-          <h6 class="footer-text direction-three">Sign up for our Newsletter</h6>
+          <h6 class="footer-text direction-three">
+            <a href="{% url 'newsletter' %}">Sign up for our Newsletter</a>
+          </h6>
           <i class="fa-solid fa-envelope-open icon d-lg-flex justify-content-center"></i>
         </div>
         <div class="col p-2">
