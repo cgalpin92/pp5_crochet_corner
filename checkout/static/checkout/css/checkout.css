@@ -26,5 +26,20 @@
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+  color: #aab7c4;
 }
+
+#checkout-success {
+  margin: 10%;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 425px) {
+  #checkout-success {
+    font-size: small;
+  }
+}
+

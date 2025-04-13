@@ -26,7 +26,42 @@
         <div class="row">
             <div class="col-12">
                 <div class="border">
-                    <div class="table-responsive rounded tbl small">
+                    <div class="div d-block d-lg-none" id="checkout-success">
+                        <div class="row">
+                            <h4 class="font-two pink-font bold">Order Information:</h4>
+                        </div>
+                        <div class="row">
+                            {% include "checkout/order_info.html" %}
+                        </div>
+                        <div class="row">
+                            <h4 class="font-two pink-font bold">Order Details:</h4>
+                        </div>
+                        <div class="row">
+                            {% include "checkout/order_line_items.html" %}
+                        </div>
+                        <div class="row">
+                            <h4 class="font-two pink-font bold">Delivery and Contact Information:</h4>
+                        </div>
+                        <div class="row">
+                            <h4 class="font-two pink-font bold">Name:</h4>
+                        </div>
+                        <div class="row">
+                            {% include "checkout/contact_info.html" %}
+                        </div>
+                        <div class="row">
+                            <h4 class="font-two pink-font bold">Delivery Details</h4>
+                        </div>
+                        <div class="row">
+                            {% include "checkout/delivery_info.html" %}
+                        </div>
+                        <div class="row">
+                            <h4 class="font-two pink-font bold">Billing Information:</h4>
+                        </div>
+                        <div class="row">
+                            {% include "checkout/billing_info.html" %}
+                        </div>
+                    </div>
+                    <div class="table-responsive rounded small d-none d-lg-block">
                         <table class="table table-sm">
                                 <tr class="pink-background">
                                     <th scope="col" class="font-two">Order Info</th>
@@ -70,11 +105,9 @@
                                         <p>{{item.product.name}}</p>
                                     </td>
                                     <td>
-                                        <p> {{item.product.color}}</p>
-                                    </td>
-                                    <td>
                                         <p>{{item.quantity}} @ £{{ item.product.price }} each</p>
                                     </td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>

@@ -1,0 +1,34 @@
+<div class="col">
+    <div class="row">
+        <div class="col-2">
+            <p>{{ order.street_address1 }},</p>
+        </div>
+        <div class="col-2">
+            <p>{% if order.street_address2 %}{{ order.street_address2 }}{% endif %}</p>
+        </div>
+        <div class="col-2">
+            {% if order.county %}
+            <p>{{ order.county }}</p>
+            {% endif %}
+        </div>
+        <div class="col-2">
+            <p>{{ order.town_or_city }}</p>
+        </div>
+        <div class="col-2">
+            {% if order.postcode %}
+            <p>{{ order.postcode }}</p>
+            {% endif %}
+        </div>
+        <div class="col-2">
+            <p>{{ order.country }}</p>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+
+
+
