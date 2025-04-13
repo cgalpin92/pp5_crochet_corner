@@ -9,7 +9,7 @@ Order Date: {{ order.date }}
 
 Order Total: £{{ order.order_total }}
 Delivery: £{{ order.delivery_cost }}
-Total: {{ order.grand_total }}
+Total: £{{ order.grand_total }}
 
 Your Order will be shipped to:
 {{ order.street_address1 }}
@@ -25,7 +25,9 @@ Phone Number: {{ order.phone_number }}
 
 If you have questions, feel free to contact us at {{ contact_email }}.
 
-Thank you for your Order! We will be in touch once your order has been dispatched.
+If you have not done so already.
+
+Thank you for your Order!
 
 Happy Crocheting 
 

@@ -160,9 +160,7 @@ a {
 }
 
 
-
 /* toasts */
-
 /* taken from Boutique ado walkthrough */
 .messages-container {
     position: fixed;
@@ -292,7 +290,7 @@ footer {
 @media screen and (min-width: 768px) {
 
     #welcome {
-        margin-top: 32%;
+        margin-top: 17%;
         padding: 6%
     }
 
