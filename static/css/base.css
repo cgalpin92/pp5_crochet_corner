@@ -3,12 +3,13 @@ html {
 }
 
 body {
-    height: calc(100vh - 164px);
+    /* height: calc(100vh - 164px); */
+    width: 100%;
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
     color: black;
-    background: url('/media/homepage_image.webp') no-repeat center center fixed ;
+    background: url('/media/homepage2.webp') no-repeat center center fixed ;
     background-size: cover;
     font-family: 'Nunito', sans-serif;
 }
@@ -325,8 +326,9 @@ footer {
     }
     
     #welcome {
-        margin-top: 33%;
+        margin-top: 15%;
         padding: 8%;
+        width: 100%;
     }
     
     .product-name {
