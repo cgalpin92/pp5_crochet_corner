@@ -101,11 +101,33 @@ __User Stories Testing__
 
 __Features Testing__
 
+- I have tested the responsiveness of both the Header and Navigation menu across all screen sizes. All links within these sections function correctly when selected, ensuring seamless navigation across devices.
+
+![header and navigation menu in mobile format](/media/header_mobile.png)
+
+![header and navigation menu in tablet format](/media/header_tablet.png)
+
+![header and navigation menu in desktop format](/media/header_desktop.png)
+
+- I successfully registered a user account, signed in, and signed out, with confirmation messages displayed at each step to verify the process.
+
+
+
+- I successfully added multiple items to the basket and adjusted their quantities using the plus and minus toggle buttons. Additionally, I was able to remove items from the basket using the 'Remove' button. In each instance—whether adding, updating, or removing items—corresponding confirmation messages were triggered, ensuring a clear and responsive user experience.
+
+- I successfully completed purchases as both an authenticated and non-authenticated user, ensuring smooth transactions across both user states. When attempting a purchase with a declined card or an incorrectly completed checkout form, the transaction was appropriately declined. In all instances, the correct event was accurately recorded within Stripe, ensuring proper tracking and payment security.
+
+- I successfully accessed the My Account page while signed into the website. However, when attempting to navigate to this page as an unauthenticated user, access was restricted, ensuring proper account security and user authentication protocols.
+
+- I successfully navigated to the Product Management page while logged in as a Superuser, where I was able to upload a new product to the store without issues. When attempting to access the URL as a non-superuser, I was appropriately informed that access is restricted, ensuring secure management of product-related functionalities.
+
+- I successfully edited existing products in the store while logged in as a Superuser. However, when attempting to access this page as a regular user or an unauthenticated visitor, access was appropriately restricted, ensuring secure product management within the platform.
+
 ### Validator Testing
 
 __HTML__
 
- - edit_product.html
+- edit_product.html
     - Error: An img element must have an alt attribute, except under certain conditions.
         - I believe this error has been generated through using Django Crispy forms to generate the product image into the Edit Product form. I cannot acces the img element so am unable to add an alt attribute.  
     - Error: Duplicate attribute id.
