@@ -38,7 +38,7 @@
                     </thead>
                     <tbody>
                         {% for order in orders %}
-                        <tr scope="row">
+                        <tr>
                             <td class="table-rows">
                                 <a href="{% url 'order_history_item' order.order_number %}" title="{{ order.order_number }}">
                                 {{ order.order_number|truncatechars:8 }}
@@ -71,4 +71,5 @@
                 <a href="{% url 'profile' %}" class="btn small-btn font-three" aria-label="return to profile page">Return to My Profile</a>
             </div>
         </div>
+    </div>
 {% endblock %}

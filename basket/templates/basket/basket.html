@@ -109,7 +109,7 @@
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 
-<script type="text/javascript">
+<script>
 
     // Update quantity on click
     // taken from Boutique Ado walkthrough
@@ -122,7 +122,7 @@
     // taken from Boutique Ado walkthrough
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
+        var itemId = $(this).attr('aria-label').split('remove_')[1];
         var url = `/basket/remove/${itemId}`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
