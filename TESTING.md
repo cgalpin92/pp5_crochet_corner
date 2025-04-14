@@ -27,6 +27,77 @@ Additionally, Lighthouse testing has been performed to assess the site's SEO per
 
 __User Stories Testing__
 
+- As a site user I can easily create an account so that I can check out quicker next time
+
+    - I successfully accessed the Register page through the My Account dropdown menu and completed the account registration process. Upon signing in, my username appeared in the My Account dropdown, confirming the login. Additionally, new menu options—My Account and Logout—became available. I was able to navigate to both pages without any issues, ensuring a smooth user experience.
+
+
+- As a site user I can log into my account so that I can view previous orders
+
+    - The site user can navigate to the 'Sign In' page and successfully sign in
+
+    - Once signed in the user is able to select the 'My Account' page and select Order History
+
+    - Given the user has made purchases they will be listed here, if the user has not made any previous orders it will state 'No Previous Orders'
+
+- As a site user I can log into my account so that I can update default contact and address information
+
+    - After successfully signing in, I navigated to the My Account page, where my default information was displayed. I was able to edit and update my details without any issues—unless I entered invalid information, such as letters in a phone number or an excessive number of digits. When purchasing a new item, the updated information was automatically populated in the relevant fields on the checkout screen, ensuring a seamless transaction.
+
+- As a site user I can delete my account so that I no longer have saved information on Crochet Corner
+
+    - Given the user has successfully signed in they can navigate to the 'My Account' page.
+
+    - From here they can scroll down to the bottom of the page and select 'Delete Account'.
+
+    - The user is taken back to the Home page and when attempting to sign in with same details the are informed the account does not exist.
+
+- As a site user I can add orders to the shopping basket so that I can view orders before purchasing them
+
+    - I navigated to the product details page, adjusted the quantity of items I wished to add to the basket, and selected 'Add to Basket.' The items were successfully added, confirmed by a success message at the top of the screen displaying the current basket contents. From there, I selected 'Go to Basket,' which redirected me to the basket screen, where all added items were listed along with their quantities and total cost.
+
+- As a site user I can view the shopping basket so that edit or remove items
+
+    - Clicking the shopping basket icon in the top-right corner of the screen redirects me to the shopping basket. If products have been added, I can adjust their quantities using the plus and minus toggle buttons or remove items entirely by selecting the 'Remove' button.
+
+
+- As a site owner I can upload new items to the admin portal so that new products can be displayed on the Crochet Corner page
+
+    - Using Superuser credentials, I successfully logged into the Admin Portal. From there, I navigated to the Products section, selected 'ADD PRODUCT,' and completed the form to create a new product. After the product was added, I accessed the front-end live site and confirmed that it was displayed under the correct category.
+
+- As a site owner I can view new orders placed by site users so that I can send out purchased products
+
+    - Using Superuser credentials, I successfully logged into the Admin Portal and navigated to the Orders section. I was able to filter the order list by 'Pending,' with all orders currently in pending status displayed at the top of the table for easy access and management.
+
+- As a site owner I can log into the admin portal so that remove user accounts from the database
+
+    - Using Superuser credentials, I successfully logged into the Admin Portal and navigated to the Users section. Selecting a user account redirected me to its details page, where I had the option to delete the account. Upon confirming deletion, the account was successfully removed from the database. Any subsequent attempt to sign in using the deleted account's credentials resulted in a message stating that the account does not exist.
+
+- As a site user I can filter products by criteria so that I can make it easier to find the product I am looking for
+
+
+    - The site user can navigate to either All Products or the Products by category.
+
+    - The site user can select the required filter options in the left hand panel when on larger screens or select the filter button on smaller screens.
+
+    - Once they have selected the required options the remaining products listed are in relation to these options.
+
+- As a site user I can easily navigate around the navigation menu so that I can get to a specific area of the site
+
+    - When on larger screens the navigation menu is clearly visible at the top of the page, or when on smaller screens the navigation menu is clearly identified by a burger icon and expands when selected.
+
+    - The different pages are clearly labelled with the current page clearly identified.
+
+    - The user is taken to the correct page when selecting it.
+
+- As a site user I can easily navigate to the Sign Up to the Newsletter page so that I can receive offers and tips on creating crochet items
+
+    - I accessed the Newsletter sign-up page via the footer link and completed the embedded Mailchimp registration form. Upon submitting my email address, a confirmation message appeared, verifying that my subscription was successfully registered.
+
+
+- As a site user I can view product information so that I can decide if the product is the correct product before adding it to the basket
+
+    - I am able to select a product, either through the All Products page or through the filtered category or brand page. I am re-directed to the details screen which lists; the product name, sku, description and price.
 
 
 __Features Testing__
