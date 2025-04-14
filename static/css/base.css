@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     color: black;
-    background: url('/media/homepage2.webp') no-repeat center center fixed ;
+    background: url('/media/homepage.webp') no-repeat center center fixed ;
     background-size: cover;
     font-family: 'Nunito', sans-serif;
 }
