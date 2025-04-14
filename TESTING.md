@@ -117,6 +117,11 @@ __JavaScript__
 
 __Python__
 
+The Python code has been thoroughly tested by installing Flake8 in the IDE and running 'python3 -m flake8 --exclude .venv,.vscode,migrations', which identifies all Python errors and displays them in the terminal while excluding Django auto-generated code. Issues such as excessive whitespace, overly long lines, and unused variables were largely resolved. However, five specific errors were intentionally retained, as they were necessary for the proper functionality of their associated functions. A screenshot of the remaining errors has been included below:
+
+![python errors](/media/python_erros.png)
+
+
 ### Bugs
 
   - __Fixed Bugs__
