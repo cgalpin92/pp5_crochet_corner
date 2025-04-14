@@ -15,7 +15,6 @@ Crochet Corner has been designed as a fully responsive website using Bootstrap a
 The website leverages the Bootstrap Grid layout along with Table and Card components to enhance its visual structure. Product cards are displayed vertically on smaller screens and automatically transition to a horizontal layout as the screen size increases. For navigation, Bootstrap styling has been implemented to optimize user experience. The secondary navigation menu, which allows users to filter searches, is condensed into a burger icon on smaller screens and expands upon selection. On laptop screens (992px and larger), the menu transitions to a horizontal layout beneath the site name for a more intuitive browsing experience.  
 Additionally, on the Basket and Checkout Success pages, information is displayed in a table format on larger screens. However, for smaller screens, the layout adapts to the Bootstrap grid system of rows and columns, ensuring a more user-friendly experience and improved readability.
 
-
 __Browser Compatibility Testing__
 
 Crochet Corner has undergone thorough testing across multiple browsers, including Chrome, Edge, Firefox, and Safari (on a mobile device). In each browser, the key functionalities were successfully verified, including account registration, login, browsing the All Products page and individual product details, uploading and editing products, and completing purchases. Additionally, all navigation elements and buttons functioned as expected, ensuring a seamless user experience across different platforms.
@@ -31,26 +30,13 @@ __User Stories Testing__
 
     - I successfully accessed the Register page through the My Account dropdown menu and completed the account registration process. Upon signing in, my username appeared in the My Account dropdown, confirming the login. Additionally, new menu options—My Account and Logout—became available. I was able to navigate to both pages without any issues, ensuring a smooth user experience.
 
-
 - As a site user I can log into my account so that I can view previous orders
 
-    - The site user can navigate to the 'Sign In' page and successfully sign in
-
-    - Once signed in the user is able to select the 'My Account' page and select Order History
-
-    - Given the user has made purchases they will be listed here, if the user has not made any previous orders it will state 'No Previous Orders'
+    Upon signing into the store as a user, I can navigate to the My Account page and access the Order History section. If the user has made previous purchases, they are displayed here. However, if no purchases have been made, a message stating 'You have no previous orders' is shown, ensuring clear communication of order status.
 
 - As a site user I can log into my account so that I can update default contact and address information
 
     - After successfully signing in, I navigated to the My Account page, where my default information was displayed. I was able to edit and update my details without any issues—unless I entered invalid information, such as letters in a phone number or an excessive number of digits. When purchasing a new item, the updated information was automatically populated in the relevant fields on the checkout screen, ensuring a seamless transaction.
-
-- As a site user I can delete my account so that I no longer have saved information on Crochet Corner
-
-    - Given the user has successfully signed in they can navigate to the 'My Account' page.
-
-    - From here they can scroll down to the bottom of the page and select 'Delete Account'.
-
-    - The user is taken back to the Home page and when attempting to sign in with same details the are informed the account does not exist.
 
 - As a site user I can add orders to the shopping basket so that I can view orders before purchasing them
 
@@ -59,7 +45,6 @@ __User Stories Testing__
 - As a site user I can view the shopping basket so that edit or remove items
 
     - Clicking the shopping basket icon in the top-right corner of the screen redirects me to the shopping basket. If products have been added, I can adjust their quantities using the plus and minus toggle buttons or remove items entirely by selecting the 'Remove' button.
-
 
 - As a site owner I can upload new items to the admin portal so that new products can be displayed on the Crochet Corner page
 
@@ -75,20 +60,11 @@ __User Stories Testing__
 
 - As a site user I can filter products by criteria so that I can make it easier to find the product I am looking for
 
-
-    - The site user can navigate to either All Products or the Products by category.
-
-    - The site user can select the required filter options in the left hand panel when on larger screens or select the filter button on smaller screens.
-
-    - Once they have selected the required options the remaining products listed are in relation to these options.
+    - I can filter products by Category, Brand, or Price using the Navigation menu. While a dropdown selection feature was considered a valuable addition, it has been categorized as a 'Nice to have' and will be explored in future site development. However, it is not a requirement for the current functionality of the site.
 
 - As a site user I can easily navigate around the navigation menu so that I can get to a specific area of the site
 
-    - When on larger screens the navigation menu is clearly visible at the top of the page, or when on smaller screens the navigation menu is clearly identified by a burger icon and expands when selected.
-
-    - The different pages are clearly labelled with the current page clearly identified.
-
-    - The user is taken to the correct page when selecting it.
+    - On larger screens, I can navigate around the navigation menu which is prominently displayed at the top of the page, while on smaller screens, it is represented by a burger icon that expands when selected, ensuring intuitive accessibility. Each page is clearly labeled, with the current page distinctly identified by the Page Header. Selecting a page correctly redirects me to the intended destination, ensuring a seamless and user-friendly navigation experience.
 
 - As a site user I can easily navigate to the Sign Up to the Newsletter page so that I can receive offers and tips on creating crochet items
 
@@ -98,6 +74,9 @@ __User Stories Testing__
 
     - I am able to select a product, either through the All Products page or through the filtered category or brand page. I am re-directed to the details screen which lists; the product name, sku, description and price.
 
+- As a site user I can delete my account so that I no longer have saved information on Crochet Corner
+
+    This user story was removed, as the ability for users to delete their own accounts was categorized as a 'Nice to have' feature rather than a core requirement. While it may be considered in future site development, its absence does not currently affect the overall user experience.
 
 __Features Testing__
 
