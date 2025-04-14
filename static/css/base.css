@@ -141,7 +141,8 @@ a {
     letter-spacing: 1px;
 }
 
-#basket-font {
+#basket-font,
+#order-history-font {
     font-size: xx-large;
     letter-spacing: 1px;
 }
@@ -163,7 +164,6 @@ a {
     color: #FF78AC;
     padding: 2%;
 }
-
 
 /* toasts */
 /* taken from Boutique ado walkthrough */

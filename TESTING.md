@@ -111,8 +111,6 @@ __Features Testing__
 
 - I successfully registered a user account, signed in, and signed out, with confirmation messages displayed at each step to verify the process.
 
-
-
 - I successfully added multiple items to the basket and adjusted their quantities using the plus and minus toggle buttons. Additionally, I was able to remove items from the basket using the 'Remove' button. In each instance—whether adding, updating, or removing items—corresponding confirmation messages were triggered, ensuring a clear and responsive user experience.
 
 - I successfully completed purchases as both an authenticated and non-authenticated user, ensuring smooth transactions across both user states. When attempting a purchase with a declined card or an incorrectly completed checkout form, the transaction was appropriately declined. In all instances, the correct event was accurately recorded within Stripe, ensuring proper tracking and payment security.
