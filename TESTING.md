@@ -109,6 +109,10 @@ __HTML__
 
 __CSS__
 
+I have passed the CSS code from the three seperate css files; base.css, profile.css and checkout.css, through the official (Jigsaw) validator. On all three occassions no errors were found.
+
+![css validation](/media/css_validator_testing.png)
+
 __JavaScript__
 
 __Python__
