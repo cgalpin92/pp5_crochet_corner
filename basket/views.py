@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (render, redirect, reverse,
+                              HttpResponse, get_object_or_404)
 from django.contrib import messages
 
 from products.models import Product
@@ -27,7 +28,8 @@ def add_to_basket(request, item_id):
 
     if item_id in list(basket.keys()):
         basket[item_id] += quantity
-        messages.success(request, f'You updated the quantity of {product.name} to {basket[item_id]}')
+        messages.success(request, f'You updated the quantity of {product.name}\
+                         to {basket[item_id]}')
     else:
         basket[item_id] = quantity
         messages.success(request, f'Added {product.name} to your basket')
@@ -38,7 +40,7 @@ def add_to_basket(request, item_id):
 
 def adjust_basket(request, item_id):
     """
-    Adjusts the quantity of the specified product 
+    Adjusts the quantity of the specified product
     Taken from the Boutique Ado walkthrough project
     """
 
@@ -48,10 +50,12 @@ def adjust_basket(request, item_id):
 
     if quantity > 0:
         basket[item_id] = quantity
-        messages.success(request, f'You updated {product.name} quantity to {basket[item_id]}')
+        messages.success(request, f'You updated {product.name}\
+                         quantity to {basket[item_id]}')
     else:
         basket.pop(item_id)
-        messages.success(request, f'You removed {product.name} from your basket')
+        messages.success(request, f'You removed {product.name}\
+                          from your basket')
 
     request.session['basket'] = basket
     return redirect(reverse('view_basket'))
@@ -59,22 +63,22 @@ def adjust_basket(request, item_id):
 
 def remove_from_basket(request, item_id):
     """
-    Remove the item from the shopping basket 
+    Remove the item from the shopping basket
     Taken from the Boutique Ado walkthrough project
     """
-    
-    
+
     try:
         product = get_object_or_404(Product, pk=item_id)
         basket = request.session.get('basket', {})
 
         basket.pop(item_id)
-        messages.success(request, f'You removed {product.name} from your basket')
+        messages.success(request, f'You removed {product.name}\
+                         from your basket')
 
         request.session['basket'] = basket
         return HttpResponse(status=200)
-    
+
     except Exception as e:
-        messages.error(request, f'Error removing the item from your basket: {e}')
+        messages.error(request, f'Error removing the item from your\
+                       basket: {e}')
         return HttpResponse(status=500)
-    

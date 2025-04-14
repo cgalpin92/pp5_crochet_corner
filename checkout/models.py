@@ -11,7 +11,6 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
-    
     PENDING = "Pending"
     DISPATCHED = "Dispatched"
     RETURN_PENDING = "Return Pending"
@@ -66,7 +65,8 @@ class Order(models.Model):
                                                     )['lineitem_total__sum'
                                                         ''] or 0
         if self.order_total < settings.FREE_DELIVERY_LIMIT:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            self.delivery_cost = (self.order_total *
+                                  settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
@@ -95,7 +95,9 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
-    product_name = models.CharField(max_length=100, help_text='records product name at time of creation which will not change when product is updated') 
+    product_name = models.CharField(max_length=100, help_text='records'
+                                    'product name at time of creation which '
+                                    'will not change when product is updated')
 
     def save(self, *args, **kwargs):
         """

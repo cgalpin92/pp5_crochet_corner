@@ -30,7 +30,7 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+
         send_mail(
             subject,
             body,
@@ -54,7 +54,7 @@ class StripeWH_Handler:
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
-        
+
         # Get the Charge object
         stripe_charge = stripe.Charge.retrieve(
             intent.latest_charge
@@ -75,20 +75,23 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = shipping_details.phone
-                profile.default_country = shipping_details.address.country
-                profile.default_postcode = shipping_details.address.postal_code
-                profile.default_town_or_city = shipping_details.address.city
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
-                profile.default_county = shipping_details.address.state
+                profile.default_phone_number = (shipping_details.phone)
+                profile.default_country = (shipping_details.address.country)
+                profile.default_postcode = (shipping_details.
+                                            address.postal_code)
+                profile.default_town_or_city = (shipping_details.address.city)
+                profile.default_street_address1 = (shipping_details.
+                                                   address.line1)
+                profile.default_street_address2 = (shipping_details.
+                                                   address.line2)
+                profile.default_county = (shipping_details.address.state)
                 profile.save()
 
         order_exists = False
         attempt = 1
         full_name = shipping_details.name
         print('FULL NAME: ', full_name)
-        first_name , last_name = shipping_details.name.split()
+        first_name, last_name = shipping_details.name.split()
         print('FIRST NAME ', first_name)
         print('LAST NAME ', last_name)
         while attempt <= 5:
@@ -108,16 +111,17 @@ class StripeWH_Handler:
                     original_basket=basket,
                     stripe_pid=pid,
                 )
-                order_exists = True 
-                break  
-                
+                order_exists = True
+                break
+
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            self._send_confirmation_email(order)            
+            self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f'Webhook received: {event["type"]} | SUCCESS: \
+                Verified order already in database',
                 status=200)
         else:
             order = None
@@ -151,11 +155,11 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        self._send_confirmation_email(order)      
+        self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created \
+            order in webhook',
             status=200)
-
 
     def handle_payment_intent_payment_failed(self, event):
         """

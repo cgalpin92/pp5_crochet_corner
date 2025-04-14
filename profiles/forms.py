@@ -6,7 +6,7 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ('user',)
-        
+
         def __init__(self, *args, **kwargs):
             """
             Add placeholders and classes, remove auto-generated
@@ -32,6 +32,8 @@ class UserProfileForm(forms.ModelForm):
                         placeholder = f'{placeholders[field]} *'
                     else:
                         placeholder = placeholders[field]
-                    self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].widget.attrs['class'] = 'border rounded border-info'
+                    self.fields[field].\
+                        widget.attrs['placeholder'] = placeholder
+                self.fields[field].widget.attrs['class'] = 'border rounded' \
+                                                           'border-info'
                 self.fields[field].label = False

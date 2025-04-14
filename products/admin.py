@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import ProductCategory, YarnCategory, ToolCategory, YarnBrand, ToolBrand, Product
+from .models import (ProductCategory, YarnCategory,
+                     ToolCategory, YarnBrand, ToolBrand, Product)
 
 # Register your models here.
 
@@ -22,7 +23,8 @@ class ToolBrandAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     ordering = ['-sku']
-    list_filter = ('product_category', 'yarn_category', 'yarn_brand', 'tool_category', 'tool_brand')
+    list_filter = ('product_category', 'yarn_category', 'yarn_brand',
+                   'tool_category', 'tool_brand')
     list_display = ('name', 'sku', 'price', 'image')
     search_fields = ['name']
 
