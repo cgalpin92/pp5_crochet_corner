@@ -48,13 +48,13 @@
                                 <div class="form-group w-25">
                                     <div class="input-group input-group-{{ product.id }} sizing">
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn rounded decrement-qty_{{ product.id }}" data-item_id="{{ product.id }}">
+                                            <button class="decrement-qty btn rounded decrement-qty_{{ product.id }}" data-item_id="{{ product.id }}" aria-label="minus">
                                                 <i class="fa-solid fa-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="number" class="form-control qty_input id_qty_{{ product.id }}" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                                        <input type="number" class="form-control qty_input id_qty_{{ product.id }}" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" aria-label="quantity input">
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn rounded increment-qty_{{ product.id }}" data-item_id="{{ product.id }}">
+                                            <button class="increment-qty btn rounded increment-qty_{{ product.id }}" data-item_id="{{ product.id }}" aria-label="plus">
                                                 <i class="fa-solid fa-plus"></i>
                                             </button>
                                         </div>

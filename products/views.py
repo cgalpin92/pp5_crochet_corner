@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 from .models import Product, YarnCategory, ToolCategory, YarnBrand, ToolBrand, ProductCategory
 from checkout.models import Order
-from .forms import ProductForm, AdminOrder
+from .forms import ProductForm
 
 # Create your views here.
 

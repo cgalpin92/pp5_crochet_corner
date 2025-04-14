@@ -3,18 +3,18 @@
     <div class="form-group">
         <div class="input-group input-group-{{ item.item_id }}">
             <div class="input-group-prepend">
-                <button class="decrement-qty btn q-btn rounded decrement-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
+                <button class="decrement-qty btn q-btn rounded decrement-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}" aria-label="minus">
                     <i class="fa-solid fa-minus"></i>
                 </button>
             </div>
-            <input type="number" class="qty-number form-control qty_input id_qty_{{ item.item_id }}" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}">
+            <input type="number" class="qty-number form-control qty_input id_qty_{{ item.item_id }}" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" aria-label="quantity input">
             <div class="input-group-append">
-                <button class="increment-qty btn q-btn rounded increment-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
+                <button class="increment-qty btn q-btn rounded increment-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}" aria-label="plus">
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
         </div>
     </div>
 </form> 
-<a href="" class="update-link btn rounded font-three small-btn m-2 basket-btns">Update</a>
-<a href="" class="remove-item btn rounded font-three small-btn m-2 basket-btns" id="remove_{{ item.item_id }}">Remove</a>
+<a class="update-link btn rounded font-three small-btn m-2 basket-btns" id="update {{ item.item_id }}">Update</a>
+<a class="remove-item btn rounded font-three small-btn m-2 basket-btns" id="remove_{{ item.item_id }}">Remove</a>

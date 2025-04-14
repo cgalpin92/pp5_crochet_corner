@@ -13,14 +13,16 @@
     <div class="layer"></div>
     <div class="container h-100">
         <div class="row">
-            <div class="col">
+            <div class="col-12 font-two text-uppercase page-header">
                 <h2 class="font-two text-uppercase page-header">Product Management</h2>
-                <h4>Add a Product</h4>
+            </div>
+            <div class="col-12 text-center p-3">
+                <h4 class="font-three">Add a Product</h4>
             </div>
         </div>
 
-        <div class="row">
-            <div>
+        <div class="row justify-content-center pt-3">
+            <div class="col-12">
                 <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
@@ -30,9 +32,9 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
-                    <div>
-                        <a href="{% url 'products' %}" class="btn rounded font-three">Cancel</a>
-                        <button class="btn rounded font-three" type="submit">Add Product</button>
+                    <div class="text-right">
+                        <a href="{% url 'products' %}" class="btn rounded font-three" aria-label="cancel">Cancel</a>
+                        <button class="btn rounded font-three" type="submit" aria-label="Add Product">Add Product</button>
                     </div>
                 </form>
             </div>

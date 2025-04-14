@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="co">
+                        <div class="col">
                             <p class="font-three pink-font p-3 text-center">A Summary of the contents of your Basket is below</p>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                 {% include "basket/product_info.html" %}
                             </div>
                             <div class="col-12 col-sm-6 order-sm-last">
-                                <p class="my-0">Price Each: {{ item.product.price }}</p>
+                                <p class="my-0 pink-font"><strong>Price Each: </strong>£{{ item.product.price }}</p>
                                 <p class="pink-font"><strong>Subtotal:</strong> £{{ item.product.price | calc_subtotal:item.quantity }}</p>
                             </div>
                             <div class="col-12 col-sm-6">
