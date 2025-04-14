@@ -94,7 +94,6 @@ __User Stories Testing__
 
     - I accessed the Newsletter sign-up page via the footer link and completed the embedded Mailchimp registration form. Upon submitting my email address, a confirmation message appeared, verifying that my subscription was successfully registered.
 
-
 - As a site user I can view product information so that I can decide if the product is the correct product before adding it to the basket
 
     - I am able to select a product, either through the All Products page or through the filtered category or brand page. I am re-directed to the details screen which lists; the product name, sku, description and price.
@@ -106,6 +105,26 @@ __Features Testing__
 
 __HTML__
 
+ - edit_product.html
+    - Error: An img element must have an alt attribute, except under certain conditions.
+        - I believe this error has been generated through using Django Crispy forms to generate the product image into the Edit Product form. I cannot acces the img element so am unable to add an alt attribute.  
+    - Error: Duplicate attribute id.
+        - I believe this error is a result of using Django Crispy forms to render the product image into the edit product form and cannot be accessed.
+    - Error: Element p not allowed as child of element strong in this context.
+        - I cannot find this section of code within the edit_product.html file so believe it is a result of using Django Cripsy forms.
+    
+    ![html validation error for edit_product.html](/media/html_error_edit_product.png)
+
+- add_product.html:
+    - Error: Duplicate attribute id.
+        - I believe this error is a result of using Django Crispy forms to render the product image upload field into the add product form and cannot be accessed.
+    - Error: Element p not allowed as child of element strong in this context.
+        - I cannot find this section of code within the add_product.html file so believe it is a result of using Django Cripsy forms.
+    
+    ![html validation error for add_product.html](/media/html_error_add_product.png)
+
+- All other HTML tests passed the validator.
+
 
 __CSS__
 
@@ -114,6 +133,10 @@ I have passed the CSS code from the three seperate css files; base.css, profile.
 ![css validation](/media/css_validator_testing.png)
 
 __JavaScript__
+
+Have run the JavaScript code through jshint.
+Warnings have appeared but no errors.
+The warnings have stated that the variables and syntaxes used are only available in ES6. I do not believe any action is required here as it is not affecting the running of my code.
 
 __Python__
 
