@@ -1,6 +1,6 @@
 Return to the [README.md](/README.md)
 
-This document contains all the testing carried out for this project. It also includes any fixed or unfixed bugs.
+This document contains all the testing carried out for this project. It also includes any reported fixed or unfixed bugs.
 
 ### Manual Testing
 

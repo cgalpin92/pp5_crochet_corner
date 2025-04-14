@@ -73,7 +73,7 @@
                   <div><i class="fa-solid fa-circle-user"></i></div>
                   <p class="my-0 font-three d-none d-lg-block">My Account</p>
                 </a>
-                <div class="dropdown-menu border-0" aria-labelledby="my-account-options">
+                <div class="dropdown-menu border-0" aria-labelledby="my-account-options" id="my-account-dropdown">
                   {% if request.user.is_authenticated %}
                     <p class="dropdown-item font-four pink-font">Hi {{ user }}</p>
                     {% if request.user.is_superuser %}
