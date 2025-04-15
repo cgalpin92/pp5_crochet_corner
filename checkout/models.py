@@ -11,6 +11,10 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """
+    Stores the entire order generated
+    by the user
+    """
     PENDING = "Pending"
     DISPATCHED = "Dispatched"
     RETURN_PENDING = "Return Pending"
@@ -86,6 +90,10 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    stores the individual order item
+    has relationships with Order and Product
+    """
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')

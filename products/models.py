@@ -2,6 +2,10 @@ from django.db import models
 
 
 class ProductCategory(models.Model):
+    """
+    stores the Product Categories in the
+    database.
+    """
     name = models.CharField(max_length=100)
     friendly_name = models.CharField(max_length=100)
 
@@ -16,6 +20,10 @@ class ProductCategory(models.Model):
 
 
 class YarnCategory(models.Model):
+    """
+    stores the Yarn Categories in the
+    database.
+    """
     yarn_category_name = models.CharField(max_length=200)
     yarn_friendly_name = models.CharField(max_length=200)
 
@@ -30,6 +38,10 @@ class YarnCategory(models.Model):
 
 
 class ToolCategory(models.Model):
+    """
+    stores the Tool Categories in the
+    database.
+    """
     tool_category_name = models.CharField(max_length=200)
     tool_friendly_name = models.CharField(max_length=200)
 
@@ -44,6 +56,10 @@ class ToolCategory(models.Model):
 
 
 class YarnBrand(models.Model):
+    """
+    stores the Yarn Brands in the
+    database.
+    """
     name = models.CharField(max_length=100)
     friendly_name = models.CharField(max_length=100)
 
@@ -55,6 +71,10 @@ class YarnBrand(models.Model):
 
 
 class ToolBrand(models.Model):
+    """
+    stores the Tool Brands in the
+    database.
+    """
     name = models.CharField(max_length=100)
     friendly_name = models.CharField(max_length=100)
 
@@ -66,6 +86,16 @@ class ToolBrand(models.Model):
 
 
 class Product(models.Model):
+    """
+    stores the Product in the
+    database.
+    Has relationships with
+    Product Categories
+    Yarn Categories
+    Tool Categories
+    Yarn Brands
+    Tool Brands
+    """
     BLACK = "Black"
     GREY = "Grey"
     WHITE = "White"
