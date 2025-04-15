@@ -17,6 +17,10 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    handles the payment process
+    taken from boutique ado walkthrough
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -33,6 +37,12 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    handles the checkout process
+    if the user is authenticated the information
+    entered will be saved to their default details
+    taken from boutique ado walkthrough
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 

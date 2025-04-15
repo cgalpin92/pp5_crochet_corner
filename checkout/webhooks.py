@@ -13,6 +13,7 @@ import stripe
 def webhook(request):
     """
     Listen for webooks from Stripe
+    taken from boutique ado walkthrough
     """
     # Setup
     wh_secret = settings.STRIPE_WH_SECRET

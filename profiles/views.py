@@ -9,7 +9,10 @@ from .forms import UserProfileForm
 
 @login_required
 def profile(request):
-    """ Display the user's profile. """
+    """
+    Display the user's profile.
+    Based on the boutique ado walkthrough
+    """
 
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -39,6 +42,7 @@ def profile(request):
 def order_history(request):
     """
     Displays the users order history
+    Based on the boutique ado walkthrough
     """
 
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -55,6 +59,10 @@ def order_history(request):
 
 @login_required
 def order_history_item(request, order_number):
+    """
+    Displays the original order confirmation
+    Based on the boutique ado walkthrough
+    """
     order = get_object_or_404(Order, order_number=order_number)
     order_date = get_object_or_404(Order, date=order.date)
 

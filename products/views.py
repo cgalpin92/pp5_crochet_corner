@@ -125,6 +125,7 @@ def product_details(request, product_id):
 def add_product(request):
     """
     Add a product to the store
+    taken from the Boutique ado walkthrough
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site admins can create,'
@@ -157,6 +158,7 @@ def add_product(request):
 def edit_product(request, product_id):
     """
     Edit a product in the store
+    taken from the boutique ado walkthrough
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site admins can create,'
@@ -191,6 +193,7 @@ def edit_product(request, product_id):
 def delete_product(request, product_id):
     """
     Delete a product in the store
+    taken from the boutique ado walkthrough
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site admins can create,'
