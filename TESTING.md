@@ -64,7 +64,7 @@ __User Stories Testing__
 
 - As a site user I can easily navigate around the navigation menu so that I can get to a specific area of the site
 
-    - On larger screens, I can navigate around the navigation menu which is prominently displayed at the top of the page, while on smaller screens, it is represented by a burger icon that expands when selected, ensuring intuitive accessibility. Each page is clearly labeled, with the current page distinctly identified by the Page Header. Selecting a page correctly redirects me to the intended destination, ensuring a seamless and user-friendly navigation experience.
+    - On larger screens, I can navigate around the navigation menu which is prominently displayed at the top of the page, while on smaller screens, it is represented by a burger icon that expands when selected, ensuring intuitive accessibility. Each page is clearly labelled, with the current page distinctly identified by the Page Header. Selecting a page correctly redirects me to the intended destination, ensuring a seamless and user-friendly navigation experience.
 
 - As a site user I can easily navigate to the Sign Up to the Newsletter page so that I can receive offers and tips on creating crochet items
 
@@ -106,11 +106,11 @@ __HTML__
 
 - edit_product.html
     - Error: An img element must have an alt attribute, except under certain conditions.
-        - I believe this error has been generated through using Django Crispy forms to generate the product image into the Edit Product form. I cannot acces the img element so am unable to add an alt attribute.  
+        - I believe this error has been generated through using Django Crispy forms to generate the product image into the Edit Product form. I cannot access the img element so am unable to add an alt attribute.  
     - Error: Duplicate attribute id.
         - I believe this error is a result of using Django Crispy forms to render the product image into the edit product form and cannot be accessed.
     - Error: Element p not allowed as child of element strong in this context.
-        - I cannot find this section of code within the edit_product.html file so believe it is a result of using Django Cripsy forms.
+        - I cannot find this section of code within the edit_product.html file so believe it is a result of using Django Crispy forms.
     
     ![html validation error for edit_product.html](/media/html_error_edit_product.png)
 
@@ -118,16 +118,15 @@ __HTML__
     - Error: Duplicate attribute id.
         - I believe this error is a result of using Django Crispy forms to render the product image upload field into the add product form and cannot be accessed.
     - Error: Element p not allowed as child of element strong in this context.
-        - I cannot find this section of code within the add_product.html file so believe it is a result of using Django Cripsy forms.
+        - I cannot find this section of code within the add_product.html file so believe it is a result of using Django Crispy forms.
     
     ![html validation error for add_product.html](/media/html_error_add_product.png)
 
 - All other HTML tests passed the validator.
 
-
 __CSS__
 
-I have passed the CSS code from the three seperate css files; base.css, profile.css and checkout.css, through the official (Jigsaw) validator. On all three occassions no errors were found.
+I have passed the CSS code from the three separate css files; base.css, profile.css and checkout.css, through the official (Jigsaw) validator. On all three occasions no errors were found.
 
 ![css validation](/media/css_validator_testing.png)
 
@@ -143,13 +142,12 @@ The Python code has been thoroughly tested by installing Flake8 in the IDE and r
 
 ![python errors](/media/python_erros.png)
 
-
 ### Bugs
 
   - __Fixed Bugs__
 
     - Unsupported lookup 'name' for ForeignKey or join in the field is not permitted:
-        This error occured when first creating the search query within the Yarn dropdown menu and running the site to test the code. When selecting one of the categories from the Yarn dropdown menu in the main-menu header, an error page appeared with the following error "Unsupported lookup 'name' for ForeignKey or join in the field is not permitted". 
+        This error occurred when first creating the search query within the Yarn dropdown menu and running the site to test the code. When selecting one of the categories from the Yarn dropdown menu in the main-menu header, an error page appeared with the following error "Unsupported lookup 'name' for ForeignKey or join in the field is not permitted". 
         Through searching online found some suggestions that the issue was related to the variable used within the view. The original GET request code wrote:
 
             if 'yarn_category' in request.GET:
@@ -167,9 +165,8 @@ The Python code has been thoroughly tested by installing Flake8 in the IDE and r
 
         Now, when running the site and selecting a Yarn category from the Yarn dropdown menu the results successfully produce a list of the products within that category.
 
-
     - UnboundLocalError: cannot access local variable 'yarn_categories' where it is not associated with a value:
-        This error occured when creating the search query with the Tools dropdown menu and running the site to test the code. When selecting one of the categories from the Tools dropdown menu in the main-header, an error page appeared with the following error "UnboundLocalError: cannot access local variable 'yarn_categories' where it is not associated with a value". When refreshing back to the home page and selecting a category from the Yarn dropdown menu a similar error page appeared, however this time referencing the 'tool_categories' - "UnboundLocalError: cannot access local variable 'tool_categories' where it is not associated with a value". This suggested that even though in the URL the correct name query is referenced (yarn_categories when selecting from the Yarn dropdown and tool_categories when selecting from the Tool dropdown), the other query within the context is still being searched for. 
+        This error occurred when creating the search query with the Tools dropdown menu and running the site to test the code. When selecting one of the categories from the Tools dropdown menu in the main-header, an error page appeared with the following error "UnboundLocalError: cannot access local variable 'yarn_categories' where it is not associated with a value". When refreshing back to the home page and selecting a category from the Yarn dropdown menu a similar error page appeared, however this time referencing the 'tool_categories' - "UnboundLocalError: cannot access local variable 'tool_categories' where it is not associated with a value". This suggested that even though in the URL the correct name query is referenced (yarn_categories when selecting from the Yarn dropdown and tool_categories when selecting from the Tool dropdown), the other query within the context is still being searched for. 
         This error has been resolved through setting the other query back to None at the start of each GET request:
 
             if 'yarn_category' in request.GET:
@@ -183,7 +180,7 @@ The Python code has been thoroughly tested by installing Flake8 in the IDE and r
         Now, when running the site and selecting a category from either the Yarn dropdown menu or Tools dropdown menu, the results successfully produce a list of the products within that category.
 
     - Invalid filter: 'calc_subtotal':
-        This error occured when attempting to create a custom template filter to calculate the individual total cost of an item in the basket dependent on the quantity of that item. When running the site to test the code received an error page stating "Invalid filter: 'calc_subtotal'". 
+        This error occurred when attempting to create a custom template filter to calculate the individual total cost of an item in the basket dependent on the quantity of that item. When running the site to test the code received an error page stating, "Invalid filter: 'calc_subtotal'". 
         Removed the name argument on the filter decorator to explicitly set the name of the filter to the name of the function without applying an additional argument. This did not fix the error. Also found solution online to add the custom template filter to the built in templates in settings.py, again this did not resolve the error. Added some print statements above the return statement within the code to see if anything appeared in the terminal when refreshing the page, nothing appeared. This suggested that there was an issue between the custom template filter setup and the basket.html document. Eventually discovered a typo at the top of the html page.
         This error was resolved through amending the typo. I had used brackets instead of curly braces when writing the template tag to extend the custom template filter page.
 
@@ -192,7 +189,7 @@ The Python code has been thoroughly tested by installing Flake8 in the IDE and r
             {% load basket_tools %}
 
     - Plus and Minus buttons unresponsive in basket.html:
-        When creating the plus and minus buttons in basket.html to allow the user to edit the quanitity of the product in the basket and running the site to test the code, the buttons were unresponsive. They were working successfully in the products details page, however completely unresponsive in the basket page.
+        When creating the plus and minus buttons in basket.html to allow the user to edit the quantity of the product in the basket and running the site to test the code, the buttons were unresponsive. They were working successfully in the products details page, however completely unresponsive in the basket page.
         I had followed the steps to create this from the Boutique Ado walkthrough project and it had been discovered that the fix for this was to replace the IDs in each button with classes so that they could be used more than once and avoid preventing the script from running due to duplicate ID issues. Also found I had missed an input group class in the top div element.
         Followed the below steps to resolve the issue:
 
@@ -225,4 +222,4 @@ The Python code has been thoroughly tested by installing Flake8 in the IDE and r
     - 
   - __Unfixed Bugs__
 
-
+    - When uploading a new product in the Product Management page, the Site Owner can assign a Yarn Category, Tool Category, Yarn Brand, and Tool Brand. Currently, these selections do not impact the product upload process. However, they will be reviewed in future development to enhance validation and minimize user errors when adding new products.
