@@ -211,7 +211,7 @@ footer {
     color: #FF78AC;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
 
    
     /* header */
@@ -256,10 +256,6 @@ footer {
     .direction {
         flex-direction: column;
     }
-
-    
-
-    
 
     /* Basket */
 
@@ -310,20 +306,6 @@ footer {
     }
 }
 
-/*
-@media screen and (min-width: 425px) {
-    
-    #order {
-        order: 2;
-        padding-top: 1.25rem;
-    }
-
-    #mc_embed_signup {
-        width: 100%;
-    }
-      
-}
-    */
 
 @media screen and (min-width: 768px) {
     
@@ -390,7 +372,7 @@ footer {
         
         font-size: x-large;
     }
-    
+
     /* Products */
     .product-name {
         font-size: smaller;
