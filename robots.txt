@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /basket/
+Sitemap: https://pp5-crochet-corner-16779e21224b.herokuapp.com/sitemap.xml
